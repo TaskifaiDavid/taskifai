@@ -72,7 +72,7 @@ export default function ProblemSolution() {
         <div className="text-center">
           <div className="modern-card p-12 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-2 border-blue-100">
             <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              <span className="text-gray-900">We've built a platform that turns those reports into </span>
+              <span className="text-gray-900">We built a system that turns those reports into </span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600">clean, reliable insights</span>
             </h2>

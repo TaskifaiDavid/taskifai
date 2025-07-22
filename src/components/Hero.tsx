@@ -18,8 +18,8 @@ export default function Hero() {
       <div className="absolute bottom-20 right-10 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-20 animate-float"></div>
       
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-        <div className="modern-card p-12 backdrop-blur-sm bg-white/70">
-          <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight">
+        <div className="modern-card p-6 md:p-12 backdrop-blur-sm bg-white/70">
+          <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
             <span className="gradient-text">We help brands</span>
             <br />
             <span className="text-gray-900">make sense of</span>
@@ -27,7 +27,7 @@ export default function Hero() {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">reseller data</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+          <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
             Turn spreadsheet chaos into <span className="text-accent-purple font-semibold">clean dashboards</span> and <span className="text-accent-pink font-semibold">instant insights</span>. 
             No more manual data cleanup, no more uncertainty.
           </p>
@@ -43,15 +43,15 @@ export default function Hero() {
           
           <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
             <div className="p-4">
-              <div className="text-3xl font-bold text-accent-emerald mb-2">AI powered</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent-emerald mb-2">AI powered</div>
               <div className="text-gray-600">Chat interface</div>
             </div>
             <div className="p-4">
-              <div className="text-3xl font-bold text-accent-purple mb-2">95%</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent-purple mb-2">95%</div>
               <div className="text-gray-600">Time savings</div>
             </div>
             <div className="p-4">
-              <div className="text-3xl font-bold text-accent-pink mb-2">Real-time</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent-pink mb-2">Real-time</div>
               <div className="text-gray-600">Data insights</div>
             </div>
           </div>
