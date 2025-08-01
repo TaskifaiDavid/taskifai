@@ -33,6 +33,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    console.log('Contact form submitted!')
     setIsSubmitting(true)
     setError('')
     setTermsError('')

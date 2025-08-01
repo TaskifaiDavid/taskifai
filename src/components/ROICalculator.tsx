@@ -20,6 +20,7 @@ interface CalculationResult {
   tierMonthlyCost: number
   manualHoursPerMonth: number
   annualHoursSaved: number
+  costPerResellerPerMonth: number
 }
 
 export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
@@ -50,25 +51,22 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
     {
       name: "Starter",
       setupCost: 20000,
-      monthlyCostRange: [1500, 1500],
+      monthlyCost: 599,
       resellerRange: [1, 10],
-      costPerResellerRange: [150, 300],
       timeSavings: "20-30 hours"
     },
     {
       name: "Growth", 
       setupCost: 35000,
-      monthlyCostRange: [2500, 3500],
+      monthlyCost: 799,
       resellerRange: [11, 20],
-      costPerResellerRange: [125, 225],
       timeSavings: "35-45 hours"
     },
     {
       name: "Enterprise",
       setupCost: 55000,
-      monthlyCostRange: [4000, 6000],
+      monthlyCost: 999,
       resellerRange: [21, 50],
-      costPerResellerRange: [80, 190],
       timeSavings: "50+ hours"
     }
   ]
@@ -76,13 +74,14 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   const calculateROI = (): CalculationResult | null => {
     const { resellers, rowsPerMonth, dataQuality, hourlyCost } = formData
 
-    // Find recommended tier
+    // Find recommended tier based ONLY on reseller count
     let recommendedTier = tiers.find(tier => 
       resellers >= tier.resellerRange[0] && resellers <= tier.resellerRange[1]
     )
 
+    // Fallback to Enterprise tier if reseller count exceeds all ranges
     if (!recommendedTier) {
-      recommendedTier = resellers > 50 ? tiers[2] : tiers[0]
+      recommendedTier = tiers[2] // Enterprise
     }
 
     // Research-based calculation: 2-6 hours per 1,000 rows baseline
@@ -97,9 +96,8 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
     const manualHoursPerMonth = (rowsPerMonth / 1000) * baseHoursPer1000Rows * qualityMultipliers[dataQuality]
     const currentMonthlyCost = manualHoursPerMonth * hourlyCost
     
-    // Platform costs
-    const avgCostPerReseller = (recommendedTier.costPerResellerRange[0] + recommendedTier.costPerResellerRange[1]) / 2
-    const platformMonthlyCost = Math.min(resellers * avgCostPerReseller, recommendedTier.monthlyCostRange[1])
+    // Fixed platform cost
+    const platformMonthlyCost = recommendedTier.monthlyCost
     
     const monthlySavings = currentMonthlyCost - platformMonthlyCost
     const annualSavings = monthlySavings * 12
@@ -109,6 +107,9 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
     const firstYearROI = ((annualSavings - recommendedTier.setupCost) / recommendedTier.setupCost) * 100
     const secondYearROI = (annualSavings / recommendedTier.setupCost) * 100
     const thirdYearROI = (annualSavings / recommendedTier.setupCost) * 100
+
+    // New metrics for fixed pricing
+    const costPerResellerPerMonth = platformMonthlyCost / resellers
 
     return {
       recommendedTier: recommendedTier.name,
@@ -120,7 +121,8 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
       tierSetupCost: recommendedTier.setupCost,
       tierMonthlyCost: platformMonthlyCost,
       manualHoursPerMonth,
-      annualHoursSaved: manualHoursPerMonth * 12
+      annualHoursSaved: manualHoursPerMonth * 12,
+      costPerResellerPerMonth
     }
   }
 
@@ -237,6 +239,9 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   if (!isOpen) return null
 
   // Use portal to render modal at document root level
+  // Check if we're in the browser before using createPortal
+  if (typeof window === 'undefined') return null
+  
   return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
@@ -374,19 +379,26 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                 </div>
 
                 {/* Key Metrics */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="modern-card p-4 text-center">
-                    <div className="text-2xl font-bold text-emerald-600 mb-1">
-                      €{result.monthlySavings.toLocaleString()}
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="modern-card p-3 text-center">
+                    <div className="text-lg font-bold text-purple-600 mb-1">
+                      €{Math.round(result.costPerResellerPerMonth)}
                     </div>
-                    <div className="text-sm text-gray-600">Monthly Savings</div>
+                    <div className="text-xs text-gray-600">Cost per Reseller</div>
                   </div>
                   
-                  <div className="modern-card p-4 text-center">
-                    <div className="text-2xl font-bold text-blue-600 mb-1">
+                  <div className="modern-card p-3 text-center">
+                    <div className="text-lg font-bold text-emerald-600 mb-1">
+                      €{result.monthlySavings.toLocaleString()}
+                    </div>
+                    <div className="text-xs text-gray-600">Monthly Savings</div>
+                  </div>
+                  
+                  <div className="modern-card p-3 text-center">
+                    <div className="text-lg font-bold text-blue-600 mb-1">
                       {result.paybackMonths === 999 ? 'N/A' : result.paybackMonths}
                     </div>
-                    <div className="text-sm text-gray-600">Months to Payback</div>
+                    <div className="text-xs text-gray-600">Months to Payback</div>
                   </div>
                 </div>
 

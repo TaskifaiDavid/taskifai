@@ -35,7 +35,7 @@ export default function ProblemSolution() {
             <span className="text-gray-900"> Management Fails</span>
           </h2>
           <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto font-medium">
-            Managing all that data is a lot of manual work. The same problems keep coming up:
+            Managing all that data is a lot of manual work.<br />The same problems keep coming up:
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">

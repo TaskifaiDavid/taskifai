@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Reseller Analytics Platform" }],
   openGraph: {
     title: "Reseller Analytics Platform | AI-Powered Data Management",
-    description: "Save 20-40 hours monthly with automated reseller data processing. Turn spreadsheet chaos into clean dashboards and instant insights.",
+    description: "Save hours monthly with automated reseller data processing. Turn spreadsheet chaos into clean dashboards and instant insights.",
     type: "website",
     locale: "en_US",
     siteName: "Reseller Analytics Platform",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Reseller Analytics Platform | AI-Powered Data Management",
-    description: "Save 20-40 hours monthly with automated reseller data processing. Turn spreadsheet chaos into clean dashboards and instant insights.",
+    description: "Save hours monthly with automated reseller data processing. Turn spreadsheet chaos into clean dashboards and instant insights.",
   },
   robots: {
     index: true,

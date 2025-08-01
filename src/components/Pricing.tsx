@@ -10,9 +10,8 @@ export default function Pricing() {
     {
       name: "Starter",
       setupFee: "Starting from €20,000",
-      monthlyFee: "€1,500/month",
+      monthlyFee: "€599/month",
       resellers: "1-10 resellers",
-      costPerReseller: "€150-300/reseller/month",
       timeSavings: "20-30 hours/month",
       gradient: "from-blue-400 to-blue-600",
       bgGradient: "from-blue-50 to-blue-100",
@@ -21,9 +20,8 @@ export default function Pricing() {
     {
       name: "Growth",
       setupFee: "Starting from €35,000",
-      monthlyFee: "€2,500–€3,500/month",
+      monthlyFee: "€799/month",
       resellers: "11-20 resellers",
-      costPerReseller: "€125-225/reseller/month",
       timeSavings: "35-45 hours/month",
       gradient: "from-purple-400 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100",
@@ -32,9 +30,8 @@ export default function Pricing() {
     {
       name: "Enterprise",
       setupFee: "Starting from €55,000",
-      monthlyFee: "€4,000+/month",
+      monthlyFee: "€999/month",
       resellers: "21-50 resellers",
-      costPerReseller: "€80-190/reseller/month",
       timeSavings: "50+ hours/month",
       gradient: "from-emerald-400 to-emerald-600",
       bgGradient: "from-emerald-50 to-emerald-100",
@@ -55,39 +52,22 @@ export default function Pricing() {
         <div className="text-center mb-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-8">Trusted by Growing Brands</h3>
           
-          {/* Testimonials */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
-            <div className="modern-card p-6 bg-white/80 backdrop-blur-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
-                  M
-                </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Marketing Director</div>
-                  <div className="text-sm text-gray-600">Consumer Electronics Brand</div>
-                </div>
+          {/* Partner Logo */}
+          <div className="flex justify-center mb-12">
+            <a 
+              href="https://www.bibbi-parfum.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="transition-transform duration-200 hover:scale-105"
+            >
+              <div className="w-64 h-40 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
+                <img 
+                  src="/bibbi-logo.png" 
+                  alt="BIBBI Parfum - Luxury Fragrance Brand" 
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <p className="text-gray-700 italic">
-                "Reduced our monthly data processing time from 40 hours to just 2 hours. The ROI was visible within the first month."
-              </p>
-              <div className="mt-4 text-emerald-600 font-semibold">35 hours saved monthly</div>
-            </div>
-            
-            <div className="modern-card p-6 bg-white/80 backdrop-blur-sm">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                  S
-                </div>
-                <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Sales Operations Manager</div>
-                  <div className="text-sm text-gray-600">Fashion Retail Company</div>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">
-                "Finally have real-time visibility into our 50+ reseller network. No more outdated spreadsheets and manual updates."
-              </p>
-              <div className="mt-4 text-emerald-600 font-semibold">Real-time data insights</div>
-            </div>
+            </a>
           </div>
 
           {/* Trust Badges */}
@@ -100,10 +80,6 @@ export default function Pricing() {
               <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
               <span className="font-medium">Enterprise Security</span>
             </div>
-            <div className="flex items-center gap-2 text-gray-600">
-              <div className="w-4 h-4 bg-purple-500 rounded-full"></div>
-              <span className="font-medium">30-Day Money Back</span>
-            </div>
           </div>
         </div>
         <div className="text-center mb-16">
@@ -111,7 +87,7 @@ export default function Pricing() {
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">Investment & ROI</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium mb-8">
-            Save 20-40 hours monthly with automated reseller data processing. See your ROI within the first quarter.
+            Save hours monthly with automated reseller data processing. See your ROI within the first quarter.
           </p>
           
           {/* Value propositions */}
@@ -132,11 +108,20 @@ export default function Pricing() {
 
           {/* Multiple CTAs */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <button className="gradient-button px-8 py-3 text-lg">
+            <button 
+              onClick={() => {
+                console.log('Schedule Demo button clicked in Pricing!')
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="gradient-button px-8 py-3 text-lg"
+            >
               Schedule Demo
             </button>
             <button 
-              onClick={() => setIsROICalculatorOpen(true)}
+              onClick={() => {
+                console.log('Calculate ROI button clicked in Pricing!')
+                setIsROICalculatorOpen(true)
+              }}
               className="bg-white text-gray-800 border-2 border-gray-300 px-8 py-3 rounded-xl text-lg font-semibold hover:border-purple-400 hover:text-purple-600 transition-all duration-300"
             >
               Calculate ROI
@@ -172,17 +157,19 @@ export default function Pricing() {
                 </div>
                 
                 <div className="mb-6">
+                  {/* Implementation label first */}
+                  <div className="text-gray-600 text-sm mb-2">Implementation</div>
                   {/* Setup fee - Primary emphasis */}
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
+                  <div className="text-3xl font-bold text-gray-900 mb-4">
                     {plan.setupFee}
                   </div>
-                  <div className="text-gray-600 text-sm mb-4">Implementation</div>
                   
-                  {/* Cost per reseller - Secondary */}
-                  <div className="text-lg font-semibold text-purple-600 mb-2">
-                    {plan.costPerReseller}
+                  {/* Monthly subscription */}
+                  <div className="text-gray-500 text-sm mb-1">Monthly subscription</div>
+                  <div className="text-lg font-semibold text-purple-600 mb-4">
+                    {plan.monthlyFee}
                   </div>
-                  <div className="text-gray-500 text-sm">per reseller monthly</div>
+                  
                 </div>
                 
                 <div className="mb-8">

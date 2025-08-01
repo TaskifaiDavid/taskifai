@@ -29,7 +29,7 @@ export default function Hero() {
           
           <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
             Transform spreadsheet chaos into <span className="text-accent-purple font-semibold">automated insights</span> and <span className="text-accent-pink font-semibold">clean dashboards</span>. 
-            Save 20-40 hours monthly with automated reseller data processing.
+            Save hours monthly with automated reseller data processing.
           </p>
           
           <div className="flex justify-center">
@@ -43,16 +43,16 @@ export default function Hero() {
           
           <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
             <div className="p-4">
-              <div className="text-2xl md:text-3xl font-bold text-accent-emerald mb-2">Ask questions</div>
-              <div className="text-gray-600">in plain English</div>
+              <div className="text-xl md:text-2xl font-bold text-accent-emerald mb-2">Clean data</div>
+              <div className="text-gray-600">auto-standardized</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl md:text-3xl font-bold text-accent-purple mb-2">20-40 hours</div>
-              <div className="text-gray-600">saved monthly</div>
+              <div className="text-xl md:text-2xl font-bold text-accent-purple mb-2">Instant answers</div>
+              <div className="text-gray-600">AI-powered insights</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl md:text-3xl font-bold text-accent-pink mb-2">Always current</div>
-              <div className="text-gray-600">data updates</div>
+              <div className="text-xl md:text-2xl font-bold text-accent-pink mb-2">Hands-free processing</div>
+              <div className="text-gray-600">zero manual work</div>
             </div>
           </div>
         </div>

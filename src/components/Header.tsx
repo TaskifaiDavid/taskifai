@@ -6,18 +6,22 @@ import ROICalculator from './ROICalculator'
 export default function Header() {
   const [isROICalculatorOpen, setIsROICalculatorOpen] = useState(false)
   const scrollToContact = () => {
+    console.log('Contact button clicked!')
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const scrollToProcess = () => {
+    console.log('Process button clicked!')
     document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const scrollToDemo = () => {
+    console.log('Demo button clicked!')
     document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const openROICalculator = () => {
+    console.log('ROI Calculator button clicked!')
     setIsROICalculatorOpen(true)
   }
 
@@ -68,8 +72,17 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Mobile menu */}
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={() => {
+                console.log('Mobile ROI Calculator button clicked!')
+                setIsROICalculatorOpen(true)
+              }}
+              className="text-gray-700 hover:text-blue-600 font-medium text-sm px-3 py-2 rounded-lg transition-colors duration-200"
+            >
+              ROI Calc
+            </button>
             <button
               onClick={scrollToContact}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg text-sm transition-all duration-200 shadow-lg"
