@@ -30,9 +30,9 @@ export default function ProblemSolution() {
         {/* Problem Section */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-gray-900">Consumer brands still rely on </span>
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-600">spreadsheets</span>
-            <span className="text-gray-900"> to track sell-out reports</span>
+            <span className="text-gray-900">Why </span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-600">Manual Reseller Data</span>
+            <span className="text-gray-900"> Management Fails</span>
           </h2>
           <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto font-medium">
             Managing all that data is a lot of manual work. The same problems keep coming up:

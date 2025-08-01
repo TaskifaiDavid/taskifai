@@ -20,16 +20,16 @@ export default function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
         <div className="modern-card p-6 md:p-12 backdrop-blur-sm bg-white/70">
           <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="gradient-text">We help brands</span>
+            <span className="gradient-text">AI-Powered</span>
             <br />
-            <span className="text-gray-900">make sense of</span>
+            <span className="text-gray-900">Reseller Analytics</span>
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">reseller data</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">for Growing Brands</span>
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
-            Turn spreadsheet chaos into <span className="text-accent-purple font-semibold">clean dashboards</span> and <span className="text-accent-pink font-semibold">instant insights</span>. 
-            No more manual data cleanup, no more uncertainty.
+            Transform spreadsheet chaos into <span className="text-accent-purple font-semibold">automated insights</span> and <span className="text-accent-pink font-semibold">clean dashboards</span>. 
+            Save 20-40 hours monthly with automated reseller data processing.
           </p>
           
           <div className="flex justify-center">
@@ -43,16 +43,16 @@ export default function Hero() {
           
           <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
             <div className="p-4">
-              <div className="text-2xl md:text-3xl font-bold text-accent-emerald mb-2">AI powered</div>
-              <div className="text-gray-600">Chat interface</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent-emerald mb-2">Ask questions</div>
+              <div className="text-gray-600">in plain English</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl md:text-3xl font-bold text-accent-purple mb-2">95%</div>
-              <div className="text-gray-600">Time savings</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent-purple mb-2">20-40 hours</div>
+              <div className="text-gray-600">saved monthly</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl md:text-3xl font-bold text-accent-pink mb-2">Real-time</div>
-              <div className="text-gray-600">Data insights</div>
+              <div className="text-2xl md:text-3xl font-bold text-accent-pink mb-2">Always current</div>
+              <div className="text-gray-600">data updates</div>
             </div>
           </div>
         </div>

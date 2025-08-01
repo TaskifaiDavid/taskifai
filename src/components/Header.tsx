@@ -1,6 +1,10 @@
 "use client"
 
+import { useState } from 'react'
+import ROICalculator from './ROICalculator'
+
 export default function Header() {
+  const [isROICalculatorOpen, setIsROICalculatorOpen] = useState(false)
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -11,6 +15,10 @@ export default function Header() {
 
   const scrollToDemo = () => {
     document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const openROICalculator = () => {
+    setIsROICalculatorOpen(true)
   }
 
   return (
@@ -41,6 +49,12 @@ export default function Header() {
               Demo
             </button>
             <button 
+              onClick={openROICalculator}
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+            >
+              ROI Calculator
+            </button>
+            <button 
               onClick={scrollToContact}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
             >
@@ -65,6 +79,12 @@ export default function Header() {
           </div>
         </nav>
       </div>
+      
+      {/* ROI Calculator Modal */}
+      <ROICalculator 
+        isOpen={isROICalculatorOpen}
+        onClose={() => setIsROICalculatorOpen(false)}
+      />
     </header>
   )
 }
