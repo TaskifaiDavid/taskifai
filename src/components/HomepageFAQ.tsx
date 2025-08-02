@@ -16,18 +16,18 @@ const faqData: FAQData[] = [
   },
   {
     id: "2",
-    question: "How quickly can I see results?",
-    answer: "You'll see meaningful insights within 30 minutes of uploading your first file. Our AI processes your data in 5-15 minutes, and then you immediately get access to clean dashboards and can start asking questions about your business. Most customers discover actionable insights on their first day."
+    question: "Why does implementation take 60 days?",
+    answer: "We build everything custom for your specific reseller data formats and business requirements. This thorough approach ensures accuracy and eliminates ongoing manual work. While generic BI tools require months of consultant work after purchase, our 60-day process delivers a complete, ready-to-use solution that works perfectly from day one."
   },
   {
     id: "3",
-    question: "Do I need technical expertise to use the platform?",
-    answer: "Not at all! The platform is designed for business users, not tech experts. You simply upload your Excel or CSV files, and our AI automatically understands your data structure. You can then ask questions like 'Which reseller sold the most last month?' in natural language - no technical skills required."
+    question: "What's included in the implementation investment?",
+    answer: "Your complete solution includes custom data parsers built specifically for each of your resellers, personalized dashboard development tailored to your workflows, complete historical data migration and cleaning, comprehensive team training and documentation, plus ongoing email support and hosting. This isn't a generic setup - it's custom development that eliminates manual work forever."
   },
   {
     id: "4",
-    question: "What file formats do you support?",
-    answer: "We support all common formats: Excel (.xlsx, .xls), CSV, and other spreadsheet formats. Our AI automatically adapts to different reseller data structures, so even if your partners use different formats, everything gets unified into one clear view."
+    question: "Do I need technical expertise to use the platform?",
+    answer: "Not at all! The platform is designed for business users, not tech experts. Once we complete your custom implementation, you can ask questions in plain English like 'Which reseller sold the most last month?' and get instant answers. The 60-day setup ensures everything works perfectly without any technical knowledge required from your team."
   },
   {
     id: "5",
@@ -42,7 +42,7 @@ const faqData: FAQData[] = [
   {
     id: "7",
     question: "What support do I get?",
-    answer: "All plans include email support with 24-hour response times during business days. We're here to help you get the most value from your data, whether that's setting up new dashboards, understanding insights, or troubleshooting any issues. Enterprise clients get dedicated account managers."
+    answer: "All plans include email support during business days. We're here to help you get the most value from your data, whether that's setting up new dashboards, understanding insights, or troubleshooting any issues."
   },
   {
     id: "8",

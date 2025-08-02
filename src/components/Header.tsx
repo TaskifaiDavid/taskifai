@@ -110,7 +110,13 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <nav className="flex items-center justify-between" role="navigation" aria-label="Main navigation">
           <div className="flex items-center">
-            <div className="text-2xl font-bold gradient-text">TaskifAI</div>
+            <button 
+              onClick={navigateHome}
+              className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity duration-200"
+              aria-label="Navigate to home page"
+            >
+              TaskifAI
+            </button>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">

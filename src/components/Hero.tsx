@@ -19,17 +19,17 @@ export default function Hero() {
       
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
         <div className="modern-card p-6 md:p-12 backdrop-blur-sm bg-white/70">
-          <h1 className="text-4xl md:text-7xl font-bold mb-8 leading-tight">
-            <span className="gradient-text">AI-Powered</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
+            <span className="text-gray-900">From messy reseller data to</span>
             <br />
-            <span className="text-gray-900">Reseller Analytics</span>
+            <span className="gradient-text">clean insights</span>
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">for Growing Brands</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">in 60 days - completely hands-off</span>
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
             Transform spreadsheet chaos into <span className="text-accent-purple font-semibold">automated insights</span> and <span className="text-accent-pink font-semibold">clean dashboards</span>. 
-            Save hours monthly with <a href="#faq" className="text-accent-purple hover:text-accent-pink font-semibold">automated reseller data processing</a>.
+            Save hours monthly with <a href="#faq" className="text-accent-purple hover:text-accent-pink font-semibold">custom-built automation</a> tailored to your resellers.
           </p>
           
           <div className="flex justify-center">

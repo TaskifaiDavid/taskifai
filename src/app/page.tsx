@@ -4,6 +4,7 @@ import Header from "@/components/Header"
 import Hero from "@/components/Hero"
 import ProblemSolution from "@/components/ProblemSolution"
 import Process from "@/components/Process"
+import ImplementationTimeline from "@/components/ImplementationTimeline"
 import AIChatDemo from "@/components/AIChatDemo"
 import Pricing from "@/components/Pricing"
 import HomepageFAQ from "@/components/HomepageFAQ"
@@ -32,6 +33,7 @@ export default function Home() {
         <Hero />
         <ProblemSolution />
         <Process />
+        <ImplementationTimeline />
         <AIChatDemo />
         <Pricing />
         <HomepageFAQ />

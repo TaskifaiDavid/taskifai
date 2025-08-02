@@ -157,15 +157,18 @@ export default function Pricing() {
                 </div>
                 
                 <div className="mb-6">
-                  {/* Implementation label first */}
-                  <div className="text-gray-600 text-sm mb-2">Implementation</div>
-                  {/* Setup fee - Primary emphasis */}
-                  <div className="text-3xl font-bold text-gray-900 mb-4">
+                  {/* Complete Solution label */}
+                  <div className="text-gray-600 text-sm mb-2">Complete Solution</div>
+                  {/* Implementation investment - Primary emphasis */}
+                  <div className="text-3xl font-bold text-gray-900 mb-2">
                     {plan.setupFee}
                   </div>
+                  <div className="text-sm text-gray-600 mb-4">
+                    Custom development, setup & migration included
+                  </div>
                   
-                  {/* Monthly subscription */}
-                  <div className="text-gray-500 text-sm mb-1">Monthly subscription</div>
+                  {/* Monthly service */}
+                  <div className="text-gray-500 text-sm mb-1">Monthly service</div>
                   <div className="text-lg font-semibold text-purple-600 mb-4">
                     {plan.monthlyFee}
                   </div>
@@ -181,15 +184,23 @@ export default function Pricing() {
                 <div className="space-y-3 text-sm text-gray-600 mb-6">
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>Complete Setup & Migration</span>
+                    <span>Custom data parsers for each reseller</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>24/7 Support & Hosting</span>
+                    <span>Personalized dashboard development</span>
                   </div>
                   <div className="flex items-center justify-center gap-2">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>Regular Updates & Maintenance</span>
+                    <span>Complete data migration & testing</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span>Team training & documentation</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                    <span>Email support & hosting</span>
                   </div>
                 </div>
 
