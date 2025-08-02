@@ -24,7 +24,7 @@ export default function Hero() {
             <br />
             <span className="gradient-text">clean insights</span>
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">in 60 days - completely hands-off</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">completely hands-off</span>
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
