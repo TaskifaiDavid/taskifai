@@ -4,6 +4,7 @@ import ProblemSolution from "@/components/ProblemSolution"
 import Process from "@/components/Process"
 import AIChatDemo from "@/components/AIChatDemo"
 import Pricing from "@/components/Pricing"
+import HomepageFAQ from "@/components/HomepageFAQ"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Process />
       <AIChatDemo />
       <Pricing />
+      <HomepageFAQ />
       <Contact />
       <Footer />
     </main>

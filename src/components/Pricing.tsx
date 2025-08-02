@@ -63,7 +63,7 @@ export default function Pricing() {
               <div className="w-64 h-40 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
                 <img 
                   src="/bibbi-logo.png" 
-                  alt="BIBBI Parfum - Luxury Fragrance Brand" 
+                  alt="BIBBI Parfum logo - Luxury fragrance brand using TaskifAI reseller analytics platform for data management" 
                   className="w-full h-full object-contain"
                 />
               </div>

@@ -20,6 +20,11 @@ export default function Header() {
     document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const scrollToFAQ = () => {
+    console.log('FAQ button clicked!')
+    document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   const openROICalculator = () => {
     console.log('ROI Calculator button clicked!')
     setIsROICalculatorOpen(true)
@@ -59,6 +64,12 @@ export default function Header() {
               ROI Calculator
             </button>
             <button 
+              onClick={scrollToFAQ}
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+            >
+              FAQ
+            </button>
+            <button 
               onClick={scrollToContact}
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
             >
@@ -82,6 +93,12 @@ export default function Header() {
               className="text-gray-700 hover:text-blue-600 font-medium text-sm px-3 py-2 rounded-lg transition-colors duration-200"
             >
               ROI Calc
+            </button>
+            <button
+              onClick={scrollToFAQ}
+              className="text-gray-700 hover:text-blue-600 font-medium text-sm px-3 py-2 rounded-lg transition-colors duration-200"
+            >
+              FAQ
             </button>
             <button
               onClick={scrollToContact}

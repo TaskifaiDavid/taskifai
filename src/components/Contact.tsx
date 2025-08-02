@@ -46,7 +46,7 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch('https://hook.eu2.make.com/43qt6ab60jsnfa56n8186mpc42khbmxd', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,8 @@ export default function Contact() {
           name: formData.name,
           email: formData.email,
           company: formData.company,
-          message: formData.message
+          message: formData.message,
+          acceptTerms: formData.acceptTerms
         }),
       })
 
@@ -63,11 +64,18 @@ export default function Contact() {
         setIsSubmitted(true)
         setFormData({ name: '', email: '', company: '', message: '', acceptTerms: false })
       } else {
-        throw new Error('Failed to send message')
+        const errorData = await response.json().catch(() => ({}))
+        if (response.status === 429) {
+          throw new Error('Too many requests. Please wait a few minutes before trying again.')
+        } else if (response.status === 400 && errorData.details) {
+          throw new Error(errorData.details.join(', '))
+        } else {
+          throw new Error(errorData.error || 'Failed to send message')
+        }
       }
     } catch (error) {
       console.error('Error submitting form:', error)
-      setError('Failed to send message. Please try again.')
+      setError(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
     } finally {
       setIsSubmitting(false)
     }

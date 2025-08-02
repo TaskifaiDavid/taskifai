@@ -29,7 +29,7 @@ export default function Hero() {
           
           <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
             Transform spreadsheet chaos into <span className="text-accent-purple font-semibold">automated insights</span> and <span className="text-accent-pink font-semibold">clean dashboards</span>. 
-            Save hours monthly with automated reseller data processing.
+            Save hours monthly with <a href="#faq" className="text-accent-purple hover:text-accent-pink font-semibold">automated reseller data processing</a>.
           </p>
           
           <div className="flex justify-center">
