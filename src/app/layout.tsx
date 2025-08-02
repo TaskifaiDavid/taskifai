@@ -1,6 +1,8 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import "./globals.css"
 import CookieConsent from "@/components/CookieConsent"
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister"
+import MobilePerformanceProvider from "@/components/MobilePerformanceProvider"
 
 // Using system fonts to avoid GDPR issues with Google Fonts
 // If you need Inter specifically, download and host it locally
@@ -10,6 +12,12 @@ export const metadata: Metadata = {
   description: "Transform reseller data chaos into actionable insights with our AI-powered analytics platform. Save 95% of manual processing time and make data-driven decisions instantly. Trusted by growing brands for automated reseller data processing and real-time business intelligence.",
   keywords: "reseller analytics, reseller data management, brand analytics dashboard, distributor data analysis, channel partner reporting, reseller performance tracking, retail partner insights, AI analytics platform, automated data processing, business intelligence, data visualization, spreadsheet automation",
   authors: [{ name: "TaskifAI" }],
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Reseller Analytics",
+  },
+  manifest: "/manifest.json",
   openGraph: {
     title: "Reseller Analytics Platform | AI-Powered Data Management",
     description: "Save hours monthly with automated reseller data processing. Turn spreadsheet chaos into clean dashboards and instant insights. Trusted by growing brands for AI-powered business intelligence.",
@@ -44,6 +52,17 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000000" }
+  ],
 }
 
 export default function RootLayout({
@@ -162,8 +181,11 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans">
-        {children}
-        <CookieConsent />
+        <MobilePerformanceProvider>
+          {children}
+          <CookieConsent />
+          <ServiceWorkerRegister />
+        </MobilePerformanceProvider>
       </body>
     </html>
   )

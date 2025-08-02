@@ -16,6 +16,20 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Mobile-only optimizations */
+  @media (max-width: 768px) {
+    /* Safe area padding for iOS devices */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    
+    /* Smooth scrolling for mobile */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    
+    /* Prevent zoom on input focus */
+    font-size: 16px;
+  }
 }
 
 @layer components {
@@ -30,9 +44,41 @@ body {
   .gradient-button {
     @apply bg-button-gradient text-white font-semibold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300;
   }
+
+  /* Mobile touch optimizations for gradient button */
+  @media (max-width: 768px) {
+    .gradient-button {
+      min-height: 44px;
+      padding: 12px 24px;
+      font-size: 16px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+  }
   
   .gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600;
+  }
+
+  /* Mobile-only touch optimization classes */
+  .mobile-touch-target {
+    @media (max-width: 768px) {
+      min-height: 44px;
+      min-width: 44px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .mobile-nav-button {
+    @media (max-width: 768px) {
+      padding: 12px 16px;
+      min-height: 44px;
+      text-align: left;
+      width: 100%;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1);
+    }
   }
 }
 
@@ -47,5 +93,43 @@ body {
   
   .animation-delay-4000 {
     animation-delay: 4s;
+  }
+
+  /* Mobile-specific performance optimizations */
+  .mobile-device {
+    /* Optimize rendering for mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-device * {
+      /* Reduce layout thrashing on mobile */
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  }
+
+  .reduce-motion * {
+    /* Reduce animations for better performance and accessibility */
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Mobile-only scroll optimizations */
+  @media (max-width: 768px) {
+    * {
+      /* Prevent scroll chaining and improve scroll performance */
+      overscroll-behavior: contain;
+    }
+    
+    body {
+      /* Better scroll performance on iOS */
+      -webkit-overflow-scrolling: touch;
+    }
   }
 }

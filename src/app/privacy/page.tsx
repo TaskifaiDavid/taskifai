@@ -1,15 +1,20 @@
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
+
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-white py-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Privacy Policy
-          </h1>
-          <p className="text-xl text-gray-600">
-            Last updated: January 2025
-          </p>
-        </header>
+    <main className="min-h-screen bg-white">
+      <Header />
+      <div className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Privacy Policy
+            </h1>
+            <p className="text-xl text-gray-600">
+              Last updated: January 2025
+            </p>
+          </div>
 
         <div className="prose prose-lg max-w-none text-gray-700 space-y-8">
           <section>
@@ -159,7 +164,9 @@ export default function PrivacyPolicy() {
             </div>
           </section>
         </div>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </main>
   )
 }
