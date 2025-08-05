@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://reseller-analytics.com/sitemap.xml',
+    sitemap: 'https://www.taskifai.com/sitemap.xml',
   }
 }
