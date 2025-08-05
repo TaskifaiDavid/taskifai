@@ -16,8 +16,8 @@ const faqData: FAQData[] = [
   },
   {
     id: "2",
-    question: "Why does implementation take 60 days?",
-    answer: "We build everything custom for your specific reseller data formats and business requirements. This thorough approach ensures accuracy and eliminates ongoing manual work. While generic BI tools require months of consultant work after purchase, our 60-day process delivers a complete, ready-to-use solution that works perfectly from day one."
+    question: "Why does implementation take 45 days?",
+    answer: "We build everything custom for your specific reseller data formats and business requirements. This thorough approach ensures accuracy and eliminates ongoing manual work. While generic BI tools require months of consultant work after purchase, our 45-day process delivers a complete, ready-to-use solution that works perfectly from day one."
   },
   {
     id: "3",
@@ -27,7 +27,7 @@ const faqData: FAQData[] = [
   {
     id: "4",
     question: "Do I need technical expertise to use the platform?",
-    answer: "Not at all! The platform is designed for business users, not tech experts. Once we complete your custom implementation, you can ask questions in plain English like 'Which reseller sold the most last month?' and get instant answers. The 60-day setup ensures everything works perfectly without any technical knowledge required from your team."
+    answer: "Not at all! The platform is designed for business users, not tech experts. Once we complete your custom implementation, you can ask questions in plain English like 'Which reseller sold the most last month?' and get instant answers. The 45-day setup ensures everything works perfectly without any technical knowledge required from your team."
   },
   {
     id: "5",

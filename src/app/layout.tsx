@@ -8,9 +8,9 @@ import MobilePerformanceProvider from "@/components/MobilePerformanceProvider"
 // If you need Inter specifically, download and host it locally
 
 export const metadata: Metadata = {
-  title: "Reseller Analytics Platform | AI-Powered Data Management for Brands",
-  description: "Transform reseller data chaos into actionable insights with our AI-powered analytics platform. Save 95% of manual processing time and make data-driven decisions instantly. Trusted by growing brands for automated reseller data processing and real-time business intelligence.",
-  keywords: "reseller analytics, reseller data management, brand analytics dashboard, distributor data analysis, channel partner reporting, reseller performance tracking, retail partner insights, AI analytics platform, automated data processing, business intelligence, data visualization, spreadsheet automation",
+  title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
+  description: "Transform messy reseller spreadsheets into clean, automated insights with AI-powered data processing. Excel spreadsheet automation that saves 95% of manual work. Custom reseller data management platform for growing brands with real-time dashboards and natural language queries.",
+  keywords: "excel spreadsheet automation, reseller data management, ai-powered data cleaning, automated data processing software, channel partner analytics, reseller analytics platform, brand analytics dashboard, distributor data analysis, business intelligence, spreadsheet automation, data visualization",
   authors: [{ name: "TaskifAI" }],
   appleWebApp: {
     capable: true,
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Reseller Analytics Platform | AI-Powered Data Management",
-    description: "Save hours monthly with automated reseller data processing. Turn spreadsheet chaos into clean dashboards and instant insights. Trusted by growing brands for AI-powered business intelligence.",
+    title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
+    description: "Transform messy reseller spreadsheets into automated insights. Excel spreadsheet automation platform that saves 95% of manual work. AI-powered data cleaning and real-time dashboards for growing brands.",
     type: "website",
     locale: "en_US",
     siteName: "TaskifAI - Reseller Analytics Platform",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Reseller Analytics Platform | AI-Powered Data Management",
-    description: "Save hours monthly with automated reseller data processing. Turn spreadsheet chaos into clean dashboards and instant insights. Trusted by growing brands.",
+    title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
+    description: "Transform messy reseller spreadsheets into automated insights. Excel spreadsheet automation that saves 95% of manual work. AI-powered data cleaning for growing brands.",
     images: ["https://www.taskifai.com/og-image.jpg"],
     creator: "@TaskifAI"
   },
@@ -73,8 +73,8 @@ export default function RootLayout({
   const softwareApplicationSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Reseller Analytics Platform",
-    "description": "AI-powered reseller data management platform that transforms spreadsheet chaos into actionable insights for consumer brands",
+    "name": "Excel Spreadsheet Automation & Reseller Analytics Platform",
+    "description": "AI-powered Excel spreadsheet automation and reseller data management platform that transforms messy spreadsheets into automated insights for consumer brands",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "url": "https://www.taskifai.com",
@@ -92,9 +92,11 @@ export default function RootLayout({
       "description": "Helping brands make sense of reseller data with AI-powered analytics"
     },
     "featureList": [
+      "Excel spreadsheet automation",
+      "AI-powered data cleaning",
       "Automated reseller data processing",
-      "AI-powered chat interface", 
       "Real-time dashboard insights",
+      "Natural language business intelligence",
       "95% time savings on manual work",
       "Custom reseller parser integration"
     ]

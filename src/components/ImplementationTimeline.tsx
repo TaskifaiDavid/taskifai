@@ -37,10 +37,10 @@ export default function ImplementationTimeline() {
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">60-Day Implementation Process</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">45-Day Implementation Process</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
-            Thorough delivery that gets you from messy spreadsheets to automated insights in 8 weeks.
+            Thorough delivery that gets you from messy spreadsheets to automated insights in 6.5 weeks.
           </p>
         </div>
 
