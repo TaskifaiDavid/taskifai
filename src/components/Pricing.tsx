@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import ROICalculator from "./ROICalculator"
+import LazyImage from "./LazyImage"
 
 export default function Pricing() {
   const [isROICalculatorOpen, setIsROICalculatorOpen] = useState(false)
@@ -61,10 +62,13 @@ export default function Pricing() {
               className="transition-transform duration-200 hover:scale-105"
             >
               <div className="w-64 h-40 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
-                <img 
+                <LazyImage 
                   src="/bibbi-logo.png" 
                   alt="BIBBI Parfum logo - Luxury fragrance brand using TaskifAI reseller analytics platform for data management" 
+                  width={256}
+                  height={160}
                   className="w-full h-full object-contain"
+                  priority={false}
                 />
               </div>
             </a>

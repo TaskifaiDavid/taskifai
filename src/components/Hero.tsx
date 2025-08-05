@@ -20,11 +20,9 @@ export default function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
         <div className="modern-card p-6 md:p-12 backdrop-blur-sm bg-white/70">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            <span className="text-gray-900">Excel spreadsheet automation for</span>
-            <br />
-            <span className="gradient-text">reseller data management</span>
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan">completely hands-off</span>
+            <span className="text-gray-900">Excel Spreadsheet Automation for </span>
+            <span className="gradient-text">Reseller Data Management</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-pink via-accent-purple to-accent-cyan"> - Completely Hands-Off</span>
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
