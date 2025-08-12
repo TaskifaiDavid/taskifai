@@ -171,6 +171,7 @@ export default function RootLayout({
       <head>
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="preload" href="https://snap.licdn.com/li.lms-analytics/insight.min.js" as="script" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
@@ -220,7 +221,8 @@ export default function RootLayout({
             width="1" 
             style={{display: 'none'}} 
             alt="" 
-            src="https://px.ads.linkedin.com/collect/?pid=8648577&fmt=gif" 
+            src="https://px.ads.linkedin.com/collect/?pid=8648577&fmt=gif"
+            loading="lazy"
           />
         </noscript>
       </head>
