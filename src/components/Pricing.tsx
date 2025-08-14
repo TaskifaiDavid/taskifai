@@ -10,7 +10,7 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
-      setupFee: "Starting from €20,000",
+      setupFee: "Starting from €15,000",
       monthlyFee: "€599/month",
       resellers: "1-10 resellers",
       timeSavings: "20-30 hours/month",
@@ -20,7 +20,7 @@ export default function Pricing() {
     },
     {
       name: "Growth",
-      setupFee: "Starting from €35,000",
+      setupFee: "Starting from €30,000",
       monthlyFee: "€799/month",
       resellers: "11-20 resellers",
       timeSavings: "35-45 hours/month",
@@ -30,7 +30,7 @@ export default function Pricing() {
     },
     {
       name: "Enterprise",
-      setupFee: "Starting from €55,000",
+      setupFee: "Starting from €50,000",
       monthlyFee: "€999/month",
       resellers: "21-50 resellers",
       timeSavings: "50+ hours/month",
@@ -185,28 +185,6 @@ export default function Pricing() {
                   </div>
                 </div>
                 
-                <div className="space-y-3 text-sm text-gray-600 mb-6">
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>Custom data parsers for each reseller</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>Personalized dashboard development</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>Complete data migration & testing</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>Team training & documentation</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                    <span>Email support & hosting</span>
-                  </div>
-                </div>
 
                 <button className="w-full bg-white text-gray-800 border-2 border-gray-300 px-6 py-3 rounded-xl font-semibold hover:border-purple-400 hover:text-purple-600 transition-all duration-300">
                   Get Custom Quote
@@ -216,7 +194,72 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Additional Info */}
+        {/* What's Included Section */}
+        <div className="text-center mb-10">
+          <div className="modern-card p-6 max-w-4xl mx-auto bg-gradient-to-br from-white via-emerald-50/20 to-green-50/30 border-2 border-emerald-100">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">
+              <span className="text-emerald-600">What's Included in Every Plan</span>
+            </h3>
+            
+            {/* First Row - 3 items */}
+            <div className="grid md:grid-cols-3 gap-6 mb-6">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-3 shadow-md">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <h4 className="font-medium text-gray-900 mb-1 text-sm">Custom Data Parsers</h4>
+                <p className="text-xs text-gray-600">Tailored for each reseller's unique data format</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-3 shadow-md">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                  </svg>
+                </div>
+                <h4 className="font-medium text-gray-900 mb-1 text-sm">Personalized Dashboard</h4>
+                <p className="text-xs text-gray-600">Built specifically for your business needs</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-3 shadow-md">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+                  </svg>
+                </div>
+                <h4 className="font-medium text-gray-900 mb-1 text-sm">Data Migration & Testing</h4>
+                <p className="text-xs text-gray-600">Complete setup with thorough validation</p>
+              </div>
+            </div>
+            
+            {/* Second Row - 2 items centered */}
+            <div className="grid md:grid-cols-2 gap-6 max-w-xl mx-auto">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-3 shadow-md">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <h4 className="font-medium text-gray-900 mb-1 text-sm">Team Training & Documentation</h4>
+                <p className="text-xs text-gray-600">Complete onboarding and support materials</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl flex items-center justify-center mb-3 shadow-md">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h4 className="font-medium text-gray-900 mb-1 text-sm">Email Support & Hosting</h4>
+                <p className="text-xs text-gray-600">Reliable infrastructure and dedicated support</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Additional Services */}
         <div className="text-center">
           <div className="modern-card p-8 max-w-2xl mx-auto bg-gradient-to-br from-white via-orange-50/20 to-yellow-50/30 border-2 border-orange-100">
             <h3 className="text-xl font-bold text-gray-900 mb-4">
@@ -225,7 +268,7 @@ export default function Pricing() {
             <div className="space-y-3 text-gray-700">
               <div className="flex items-center justify-center gap-2">
                 <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span><strong>Additional reseller parser:</strong> €2,000 each</span>
+                <span><strong>Additional reseller parser:</strong> €1,500 each</span>
               </div>
               <div className="text-sm text-gray-600 mt-4">
                 Need more resellers than Enterprise supports? Contact us for custom enterprise solutions.
