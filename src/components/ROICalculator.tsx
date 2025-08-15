@@ -244,7 +244,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
       />
       
       {/* Modal */}
-      <div className="relative w-full h-full sm:w-auto sm:h-auto sm:max-w-4xl sm:max-h-[90vh] overflow-y-auto modern-card p-4 sm:p-8">
+      <div className="relative w-full sm:w-auto sm:h-auto sm:max-w-4xl sm:max-h-[90vh] overflow-y-auto modern-card p-4 sm:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold">
@@ -496,7 +496,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Manual processing cost:</span>
-                      <span className="font-medium">€{(result.manualHoursPerMonth * formData.hourlyCost).toLocaleString()}/month</span>
+                      <span className="font-medium">€{Math.round(result.manualHoursPerMonth * formData.hourlyCost).toLocaleString()}/month</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Platform monthly cost:</span>
