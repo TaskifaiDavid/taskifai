@@ -26,10 +26,15 @@ interface CalculationResult {
 export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   const [formData, setFormData] = useState({
     resellers: 5,
-    rowsPerMonth: 10000,
-    dataQuality: 'moderate' as 'clean' | 'moderate' | 'messy',
-    hourlyCost: 75
+    hourlyCost: 75,
+    // Advanced settings with realistic defaults
+    reportsPerResellerPerMonth: 4.33,
+    cleaningHours: 1.0,
+    consolidationHours: 0.5,
+    qaPercentage: 15
   })
+
+  const [showAdvancedSettings, setShowAdvancedSettings] = useState(false)
 
   const [errors, setErrors] = useState<Record<string, string>>({})
   
@@ -72,7 +77,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   ]
 
   const calculateROI = (): CalculationResult | null => {
-    const { resellers, rowsPerMonth, dataQuality, hourlyCost } = formData
+    const { resellers, hourlyCost, reportsPerResellerPerMonth, cleaningHours, consolidationHours, qaPercentage } = formData
 
     // Find recommended tier based ONLY on reseller count
     let recommendedTier = tiers.find(tier => 
@@ -84,16 +89,10 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
       recommendedTier = tiers[2] // Enterprise
     }
 
-    // Research-based calculation: 2-6 hours per 1,000 rows baseline
-    const baseHoursPer1000Rows = 4 // Average of 2-6 hours
-    const qualityMultipliers = {
-      clean: 1,
-      moderate: 3,
-      messy: 6
-    }
-    
-    // Calculate manual processing time based on research
-    const manualHoursPerMonth = (rowsPerMonth / 1000) * baseHoursPer1000Rows * qualityMultipliers[dataQuality]
+    // Workflow-based calculation
+    const baseHoursPerReport = cleaningHours + consolidationHours
+    const hoursPerReportWithQA = baseHoursPerReport * (1 + qaPercentage / 100)
+    const manualHoursPerMonth = resellers * reportsPerResellerPerMonth * hoursPerReportWithQA
     const currentMonthlyCost = manualHoursPerMonth * hourlyCost
     
     // Fixed platform cost
@@ -127,9 +126,8 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   }
 
   const isFormValid = () => {
-    const { resellers, rowsPerMonth, hourlyCost } = formData
+    const { resellers, hourlyCost } = formData
     return resellers >= 1 && resellers <= 100 &&
-           rowsPerMonth >= 1000 && rowsPerMonth <= 1000000 &&
            hourlyCost >= 20 && hourlyCost <= 200
   }
 
@@ -138,9 +136,6 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
     
     if (formData.resellers < 1 || formData.resellers > 100) {
       newErrors.resellers = "Please enter between 1-100 resellers"
-    }
-    if (formData.rowsPerMonth < 1000 || formData.rowsPerMonth > 1000000) {
-      newErrors.rowsPerMonth = "Please enter between 1,000-1,000,000 rows"
     }
     if (formData.hourlyCost < 20 || formData.hourlyCost > 200) {
       newErrors.hourlyCost = "Please enter between €20-200 per hour"
@@ -151,12 +146,8 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   }
 
   const handleInputChange = (field: string, value: string) => {
-    if (field === 'dataQuality') {
-      setFormData(prev => ({ ...prev, [field]: value as 'clean' | 'moderate' | 'messy' }))
-    } else {
-      const numValue = parseInt(value) || 0
-      setFormData(prev => ({ ...prev, [field]: numValue }))
-    }
+    const numValue = parseFloat(value) || 0
+    setFormData(prev => ({ ...prev, [field]: numValue }))
     
     // Clear error when user starts typing
     if (errors[field]) {
@@ -207,9 +198,11 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
           message: contactData.message,
           data: calculationResult ? {
             resellers: formData.resellers,
-            rowsPerMonth: formData.rowsPerMonth,
-            dataQuality: formData.dataQuality,
             hourlyCost: formData.hourlyCost,
+            reportsPerResellerPerMonth: formData.reportsPerResellerPerMonth,
+            cleaningHours: formData.cleaningHours,
+            consolidationHours: formData.consolidationHours,
+            qaPercentage: formData.qaPercentage,
             recommendedTier: calculationResult.recommendedTier,
             monthlySavings: calculationResult.monthlySavings,
             firstYearROI: calculationResult.firstYearROI,
@@ -272,7 +265,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Input Form */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Tell us about your business</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900">Calculate your potential savings</h3>
             
             <div className="space-y-6">
               <div>
@@ -295,47 +288,6 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                 )}
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Rows of Data Processed Monthly
-                </label>
-                <input
-                  type="number"
-                  min="1000"
-                  max="1000000"
-                  step="1000"
-                  value={formData.rowsPerMonth}
-                  onChange={(e) => handleInputChange('rowsPerMonth', e.target.value)}
-                  className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors ${
-                    errors.rowsPerMonth ? 'border-red-300' : 'border-gray-300 focus:border-purple-400'
-                  }`}
-                  placeholder="e.g. 50000"
-                />
-                {errors.rowsPerMonth && (
-                  <p className="mt-1 text-sm text-red-600">{errors.rowsPerMonth}</p>
-                )}
-                <p className="mt-1 text-sm text-gray-500">
-                  Total reseller data rows processed per month
-                </p>
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Data Quality Level
-                </label>
-                <select
-                  value={formData.dataQuality}
-                  onChange={(e) => handleInputChange('dataQuality', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
-                >
-                  <option value="clean">Clean - Minor formatting issues</option>
-                  <option value="moderate">Moderate - Some duplicates and inconsistencies</option>
-                  <option value="messy">Very Messy - Major cleanup required</option>
-                </select>
-                <p className="mt-1 text-sm text-gray-500">
-                  Based on industry research: Clean (1x), Moderate (3x), Very Messy (6x) processing time
-                </p>
-              </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -358,6 +310,101 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                 <p className="mt-1 text-sm text-gray-500">
                   Include salary, benefits, and overhead costs
                 </p>
+              </div>
+
+              {/* Advanced Settings */}
+              <div className="border-t pt-6">
+                <button
+                  type="button"
+                  onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}
+                  className="flex items-center justify-between w-full text-left text-sm font-medium text-gray-700 mb-4"
+                >
+                  Advanced Settings
+                  <svg
+                    className={`w-4 h-4 transition-transform ${showAdvancedSettings ? 'transform rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+
+                {showAdvancedSettings && (
+                  <div className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Reports per reseller per month
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={formData.reportsPerResellerPerMonth}
+                        onChange={(e) => handleInputChange('reportsPerResellerPerMonth', e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
+                        placeholder="4.33"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Weekly files averaged per calendar month
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Cleaning hours per report
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.1"
+                        value={formData.cleaningHours}
+                        onChange={(e) => handleInputChange('cleaningHours', e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
+                        placeholder="1.0"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Reformatting + corrections inside each file
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Consolidation hours per report
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.1"
+                        value={formData.consolidationHours}
+                        onChange={(e) => handleInputChange('consolidationHours', e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
+                        placeholder="0.5"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Merging into master sheet/DB and checks against totals
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        QA time (%)
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        value={formData.qaPercentage}
+                        onChange={(e) => handleInputChange('qaPercentage', e.target.value)}
+                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
+                        placeholder="15"
+                      />
+                      <p className="mt-1 text-xs text-gray-500">
+                        Time for validations, fixes, re-submissions, and email follow-ups
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -389,7 +436,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                   
                   <div className="modern-card p-3 text-center">
                     <div className="text-lg font-bold text-emerald-600 mb-1">
-                      €{result.monthlySavings.toLocaleString()}
+                      €{Math.round(result.monthlySavings).toLocaleString()}
                     </div>
                     <div className="text-xs text-gray-600">Monthly Savings</div>
                   </div>
@@ -460,7 +507,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                       <span className="font-medium">€{result.tierSetupCost.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-xs text-gray-500 mt-2">
-                      <span>Processing {formData.rowsPerMonth.toLocaleString()} rows ({formData.dataQuality} quality)</span>
+                      <span>Processing {formData.resellers} resellers × {formData.reportsPerResellerPerMonth} reports/month</span>
                       <span>~{Math.round(result.manualHoursPerMonth)}h manual work</span>
                     </div>
                   </div>
@@ -469,8 +516,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                 {/* Research Note */}
                 <div className="modern-card p-4 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
                   <p className="text-xs text-gray-600 text-center">
-                    ℹ️ Calculations based on industry research: Data professionals spend 50-80% of time on cleaning, 
-                    with 2-6 hours per 1,000 rows for manual processing.
+                    ℹ️ Cleaning one file is only part of the job. Most brands also spend time consolidating to a master, validating totals, and handling resubmissions. This calculator accounts for the complete workflow.
                   </p>
                 </div>
 
