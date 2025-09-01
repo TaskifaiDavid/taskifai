@@ -192,7 +192,7 @@ export default function CookiePolicyPage() {
                     Used to analyze website usage and improve user experience.
                   </p>
                   <p className="text-gray-600 text-sm">
-                    Learn more: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-700 underline">Google Privacy Policy</a>
+                    Learn more: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-600 underline">Google Privacy Policy</a>
                   </p>
                 </div>
               </section>
@@ -235,7 +235,7 @@ export default function CookiePolicyPage() {
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700"><strong>TaskifAI AB</strong></p>
                   <p className="text-gray-700">Email: hello@taskifai.com</p>
-                  <p className="text-gray-700">Website: <Link href="/" className="text-blue-600 hover:text-blue-700 underline">www.taskifai.com</Link></p>
+                  <p className="text-gray-700">Website: <Link href="/" className="text-blue-600 hover:text-blue-600 underline">www.taskifai.com</Link></p>
                 </div>
               </section>
 
@@ -255,7 +255,7 @@ export default function CookiePolicyPage() {
                   </Link>
                   <Link 
                     href="/#contact"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-600/90 transition-colors"
                   >
                     Contact Us
                   </Link>

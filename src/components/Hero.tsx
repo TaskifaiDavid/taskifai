@@ -1,8 +1,24 @@
 "use client"
 
+import VideoEmbed from './VideoEmbed'
+
 export default function Hero() {
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const scrollToVideo = () => {
+    const videoElement = document.getElementById('hero-video')
+    if (videoElement) {
+      videoElement.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      // Small delay to allow scroll, then trigger video play
+      setTimeout(() => {
+        const videoTrigger = document.querySelector('[data-video-trigger]')
+        if (videoTrigger) {
+          (videoTrigger as HTMLElement).click()
+        }
+      }, 800)
+    }
   }
 
   return (
@@ -17,37 +33,50 @@ export default function Hero() {
       <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-full opacity-20 animate-float animation-delay-4000"></div>
       <div className="absolute bottom-20 right-10 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-20 animate-float"></div>
       
-      <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <div className="modern-card p-6 md:p-12 backdrop-blur-sm bg-white/70">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-            <span className="gradient-text">Never Touch a Reseller<br />Spreadsheet Again</span>
-          </h1>
-          
-          <p className="text-lg md:text-2xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
-            You upload. We clean, standardize, and turn it into live<br />dashboards and AI answers automatically.
-          </p>
-          
-          <div className="flex justify-center">
-            <button
-              onClick={scrollToContact}
-              className="gradient-button text-xl px-12 py-4"
-            >
-              Book intro call
-            </button>
-          </div>
-          
-          <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
-            <div className="p-4">
-              <div className="text-xl md:text-2xl font-bold text-accent-emerald mb-2">Clean data</div>
-              <div className="text-gray-600">auto-standardized</div>
+          {/* Vertical Stack: Content Above, Video Below */}
+          <div className="text-center space-y-8">
+            
+            {/* Header Content */}
+            <div className="max-w-5xl mx-auto">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 leading-tight">
+                <span className="gradient-text">From messy spreadsheets to decisions you can trust</span>
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-2xl text-gray-700 mb-8 md:mb-12 leading-relaxed font-medium max-w-4xl mx-auto px-4 sm:px-0">
+                TaskifAI turns inconsistent reseller spreadsheets into reliable insights, automatically. Save hours per month, close your books faster, and give your team confidence in the numbers.
+              </p>
+              
+              {/* Dual CTA Strategy */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16 px-4 sm:px-0">
+                <button
+                  onClick={scrollToContact}
+                  className="gradient-button text-lg sm:text-xl px-8 sm:px-12 py-4"
+                >
+                  Book intro call
+                </button>
+                <button
+                  onClick={scrollToVideo}
+                  className="text-lg sm:text-xl px-8 sm:px-12 py-4 border-2 border-purple-600 text-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 font-semibold"
+                  data-video-cta
+                >
+                  Watch 2-min demo
+                </button>
+              </div>
             </div>
-            <div className="p-4">
-              <div className="text-xl md:text-2xl font-bold text-accent-purple mb-2">Instant answers</div>
-              <div className="text-gray-600">AI-powered insights</div>
-            </div>
-            <div className="p-4">
-              <div className="text-xl md:text-2xl font-bold text-accent-pink mb-2">Hands-free processing</div>
-              <div className="text-gray-600">zero manual work</div>
+            
+            {/* Massive Video Section */}
+            <div id="hero-video" className="w-full scroll-mt-8">
+              <div data-video-trigger>
+                <VideoEmbed
+                  src="https://youtu.be/BM_kanRjDAI"
+                  title="TaskifAI Product Demo"
+                  aspectRatio="21/9"
+                  className="w-full shadow-2xl"
+                  cacheBust={true}
+                />
+              </div>
             </div>
           </div>
         </div>

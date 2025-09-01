@@ -95,7 +95,7 @@ export default function CookieConsent() {
               <p className="text-gray-600">
                 We use cookies to ensure you get the best experience on our website. 
                 These include essential cookies for website functionality and optional cookies for analytics.{' '}
-                <Link href="/cookies" className="text-blue-600 hover:text-blue-700 underline">
+                <Link href="/cookies" className="text-blue-600 hover:text-blue-600 underline">
                   Learn more about our cookies
                 </Link>
               </p>

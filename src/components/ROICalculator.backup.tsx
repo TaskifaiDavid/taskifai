@@ -26,15 +26,10 @@ interface CalculationResult {
 export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   const [formData, setFormData] = useState({
     resellers: 5,
-    hourlyCost: 75,
-    // Advanced settings with realistic defaults
-    reportsPerResellerPerMonth: 4.33,
-    cleaningHours: 1.0,
-    consolidationHours: 0.5,
-    qaPercentage: 15
+    rowsPerMonth: 10000,
+    dataQuality: 'moderate' as 'clean' | 'moderate' | 'messy',
+    hourlyCost: 75
   })
-
-  const [showAdvancedSettings, setShowAdvancedSettings] = useState(false)
 
   const [errors, setErrors] = useState<Record<string, string>>({})
   
@@ -77,7 +72,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   ]
 
   const calculateROI = (): CalculationResult | null => {
-    const { resellers, hourlyCost, reportsPerResellerPerMonth, cleaningHours, consolidationHours, qaPercentage } = formData
+    const { resellers, rowsPerMonth, dataQuality, hourlyCost } = formData
 
     // Find recommended tier based ONLY on reseller count
     let recommendedTier = tiers.find(tier => 
@@ -89,10 +84,16 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
       recommendedTier = tiers[2] // Enterprise
     }
 
-    // Workflow-based calculation
-    const baseHoursPerReport = cleaningHours + consolidationHours
-    const hoursPerReportWithQA = baseHoursPerReport * (1 + qaPercentage / 100)
-    const manualHoursPerMonth = resellers * reportsPerResellerPerMonth * hoursPerReportWithQA
+    // Research-based calculation: 2-6 hours per 1,000 rows baseline
+    const baseHoursPer1000Rows = 4 // Average of 2-6 hours
+    const qualityMultipliers = {
+      clean: 1,
+      moderate: 3,
+      messy: 6
+    }
+    
+    // Calculate manual processing time based on research
+    const manualHoursPerMonth = (rowsPerMonth / 1000) * baseHoursPer1000Rows * qualityMultipliers[dataQuality]
     const currentMonthlyCost = manualHoursPerMonth * hourlyCost
     
     // Fixed platform cost
@@ -126,8 +127,9 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   }
 
   const isFormValid = () => {
-    const { resellers, hourlyCost } = formData
+    const { resellers, rowsPerMonth, hourlyCost } = formData
     return resellers >= 1 && resellers <= 100 &&
+           rowsPerMonth >= 1000 && rowsPerMonth <= 1000000 &&
            hourlyCost >= 20 && hourlyCost <= 200
   }
 
@@ -136,6 +138,9 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
     
     if (formData.resellers < 1 || formData.resellers > 100) {
       newErrors.resellers = "Please enter between 1-100 resellers"
+    }
+    if (formData.rowsPerMonth < 1000 || formData.rowsPerMonth > 1000000) {
+      newErrors.rowsPerMonth = "Please enter between 1,000-1,000,000 rows"
     }
     if (formData.hourlyCost < 20 || formData.hourlyCost > 200) {
       newErrors.hourlyCost = "Please enter between €20-200 per hour"
@@ -146,8 +151,12 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   }
 
   const handleInputChange = (field: string, value: string) => {
-    const numValue = parseFloat(value) || 0
-    setFormData(prev => ({ ...prev, [field]: numValue }))
+    if (field === 'dataQuality') {
+      setFormData(prev => ({ ...prev, [field]: value as 'clean' | 'moderate' | 'messy' }))
+    } else {
+      const numValue = parseInt(value) || 0
+      setFormData(prev => ({ ...prev, [field]: numValue }))
+    }
     
     // Clear error when user starts typing
     if (errors[field]) {
@@ -198,11 +207,9 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
           message: contactData.message,
           data: calculationResult ? {
             resellers: formData.resellers,
+            rowsPerMonth: formData.rowsPerMonth,
+            dataQuality: formData.dataQuality,
             hourlyCost: formData.hourlyCost,
-            reportsPerResellerPerMonth: formData.reportsPerResellerPerMonth,
-            cleaningHours: formData.cleaningHours,
-            consolidationHours: formData.consolidationHours,
-            qaPercentage: formData.qaPercentage,
             recommendedTier: calculationResult.recommendedTier,
             monthlySavings: calculationResult.monthlySavings,
             firstYearROI: calculationResult.firstYearROI,
@@ -236,7 +243,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   if (typeof window === 'undefined') return null
   
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center sm:items-center min-h-[100vh] pt-4 sm:pt-0 p-0 sm:p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/50 backdrop-blur-sm"
@@ -244,17 +251,17 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
       />
       
       {/* Modal */}
-      <div className="relative w-full sm:w-auto sm:h-auto sm:max-w-4xl sm:max-h-[90vh] overflow-y-auto modern-card p-4 sm:p-8">
+      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto modern-card p-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">
               ROI Calculator
             </span>
           </h2>
           <button
             onClick={onClose}
-            className="w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors touch-manipulation"
+            className="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
           >
             <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -262,10 +269,10 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
           </button>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid lg:grid-cols-2 gap-8">
           {/* Input Form */}
           <div>
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Calculate your potential savings</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900">Tell us about your business</h3>
             
             <div className="space-y-6">
               <div>
@@ -288,6 +295,47 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                 )}
               </div>
 
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Rows of Data Processed Monthly
+                </label>
+                <input
+                  type="number"
+                  min="1000"
+                  max="1000000"
+                  step="1000"
+                  value={formData.rowsPerMonth}
+                  onChange={(e) => handleInputChange('rowsPerMonth', e.target.value)}
+                  className={`w-full px-4 py-3 rounded-xl border-2 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors ${
+                    errors.rowsPerMonth ? 'border-red-300' : 'border-gray-300 focus:border-purple-400'
+                  }`}
+                  placeholder="e.g. 50000"
+                />
+                {errors.rowsPerMonth && (
+                  <p className="mt-1 text-sm text-red-600">{errors.rowsPerMonth}</p>
+                )}
+                <p className="mt-1 text-sm text-gray-500">
+                  Total reseller data rows processed per month
+                </p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Data Quality Level
+                </label>
+                <select
+                  value={formData.dataQuality}
+                  onChange={(e) => handleInputChange('dataQuality', e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
+                >
+                  <option value="clean">Clean - Minor formatting issues</option>
+                  <option value="moderate">Moderate - Some duplicates and inconsistencies</option>
+                  <option value="messy">Very Messy - Major cleanup required</option>
+                </select>
+                <p className="mt-1 text-sm text-gray-500">
+                  Based on industry research: Clean (1x), Moderate (3x), Very Messy (6x) processing time
+                </p>
+              </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -311,101 +359,6 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                   Include salary, benefits, and overhead costs
                 </p>
               </div>
-
-              {/* Advanced Settings */}
-              <div className="border-t pt-6">
-                <button
-                  type="button"
-                  onClick={() => setShowAdvancedSettings(!showAdvancedSettings)}
-                  className="flex items-center justify-between w-full text-left text-sm font-medium text-gray-700 mb-4"
-                >
-                  Advanced Settings
-                  <svg
-                    className={`w-4 h-4 transition-transform ${showAdvancedSettings ? 'transform rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-
-                {showAdvancedSettings && (
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Reports per reseller per month
-                      </label>
-                      <input
-                        type="number"
-                        min="0"
-                        step="0.01"
-                        value={formData.reportsPerResellerPerMonth}
-                        onChange={(e) => handleInputChange('reportsPerResellerPerMonth', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
-                        placeholder="4.33"
-                      />
-                      <p className="mt-1 text-xs text-gray-500">
-                        Weekly files averaged per calendar month
-                      </p>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Cleaning hours per report
-                      </label>
-                      <input
-                        type="number"
-                        min="0"
-                        step="0.1"
-                        value={formData.cleaningHours}
-                        onChange={(e) => handleInputChange('cleaningHours', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
-                        placeholder="1.0"
-                      />
-                      <p className="mt-1 text-xs text-gray-500">
-                        Reformatting + corrections inside each file
-                      </p>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Consolidation hours per report
-                      </label>
-                      <input
-                        type="number"
-                        min="0"
-                        step="0.1"
-                        value={formData.consolidationHours}
-                        onChange={(e) => handleInputChange('consolidationHours', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
-                        placeholder="0.5"
-                      />
-                      <p className="mt-1 text-xs text-gray-500">
-                        Merging into master sheet/DB and checks against totals
-                      </p>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        QA time (%)
-                      </label>
-                      <input
-                        type="number"
-                        min="0"
-                        step="1"
-                        value={formData.qaPercentage}
-                        onChange={(e) => handleInputChange('qaPercentage', e.target.value)}
-                        className="w-full px-3 py-2 rounded-lg border border-gray-300 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-colors"
-                        placeholder="15"
-                      />
-                      <p className="mt-1 text-xs text-gray-500">
-                        Time for validations, fixes, re-submissions, and email follow-ups
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
             </div>
           </div>
 
@@ -428,7 +381,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                 {/* Key Metrics */}
                 <div className="grid grid-cols-3 gap-3">
                   <div className="modern-card p-3 text-center">
-                    <div className="text-lg font-bold text-purple-600 mb-1">
+                    <div className="text-lg font-bold text-blue-600 mb-1">
                       €{Math.round(result.costPerResellerPerMonth)}
                     </div>
                     <div className="text-xs text-gray-600">Cost per Reseller</div>
@@ -436,13 +389,13 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                   
                   <div className="modern-card p-3 text-center">
                     <div className="text-lg font-bold text-emerald-600 mb-1">
-                      €{Math.round(result.monthlySavings).toLocaleString()}
+                      €{result.monthlySavings.toLocaleString()}
                     </div>
                     <div className="text-xs text-gray-600">Monthly Savings</div>
                   </div>
                   
                   <div className="modern-card p-3 text-center">
-                    <div className="text-lg font-bold text-accent mb-1">
+                    <div className="text-lg font-bold text-blue-600 mb-1">
                       {result.paybackMonths === 999 ? 'N/A' : result.paybackMonths}
                     </div>
                     <div className="text-xs text-gray-600">Months to Payback</div>
@@ -496,7 +449,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                   <div className="space-y-3 text-sm">
                     <div className="flex justify-between">
                       <span className="text-gray-600">Manual processing cost:</span>
-                      <span className="font-medium">€{Math.round(result.manualHoursPerMonth * formData.hourlyCost).toLocaleString()}/month</span>
+                      <span className="font-medium">€{(result.manualHoursPerMonth * formData.hourlyCost).toLocaleString()}/month</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-600">Platform monthly cost:</span>
@@ -507,7 +460,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                       <span className="font-medium">€{result.tierSetupCost.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-xs text-gray-500 mt-2">
-                      <span>Processing {formData.resellers} resellers × {formData.reportsPerResellerPerMonth} reports/month</span>
+                      <span>Processing {formData.rowsPerMonth.toLocaleString()} rows ({formData.dataQuality} quality)</span>
                       <span>~{Math.round(result.manualHoursPerMonth)}h manual work</span>
                     </div>
                   </div>
@@ -516,7 +469,8 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                 {/* Research Note */}
                 <div className="modern-card p-4 bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200">
                   <p className="text-xs text-gray-600 text-center">
-                    ℹ️ Cleaning one file is only part of the job. Most brands also spend time consolidating to a master, validating totals, and handling resubmissions. This calculator accounts for the complete workflow.
+                    ℹ️ Calculations based on industry research: Data professionals spend 50-80% of time on cleaning, 
+                    with 2-6 hours per 1,000 rows for manual processing.
                   </p>
                 </div>
 
@@ -639,7 +593,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                             href="/privacy" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-purple-600 hover:text-purple-700 underline"
+                            className="text-blue-600 hover:text-purple-700 underline"
                           >
                             Privacy Policy
                           </Link>
@@ -648,7 +602,7 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
                             href="/terms" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="text-purple-600 hover:text-purple-700 underline"
+                            className="text-blue-600 hover:text-purple-700 underline"
                           >
                             Terms of Service
                           </Link>

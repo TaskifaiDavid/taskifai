@@ -201,7 +201,7 @@ export default function Contact() {
                   type="checkbox"
                   checked={formData.acceptTerms}
                   onChange={handleChange}
-                  className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                  className="h-4 w-4 text-blue-600 focus:ring-purple-500 border-gray-300 rounded"
                   aria-describedby="terms-description"
                 />
               </div>
@@ -212,7 +212,7 @@ export default function Contact() {
                     href="/privacy" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-purple-600 hover:text-purple-700 underline font-medium"
+                    className="text-blue-600 hover:text-purple-700 underline font-medium"
                   >
                     Privacy Policy
                   </Link>
@@ -221,7 +221,7 @@ export default function Contact() {
                     href="/terms" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-purple-600 hover:text-purple-700 underline font-medium"
+                    className="text-blue-600 hover:text-purple-700 underline font-medium"
                   >
                     Terms of Service
                   </Link>

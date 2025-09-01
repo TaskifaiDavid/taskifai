@@ -31,6 +31,49 @@ body {
   }
 }
 
+/* YouTube Embed Custom Styling */
+/* Hide custom play button when video is activated - multiple selectors for better targeting */
+.youtube-embed-container .lyt-activated .youtube-play-button,
+.lyt-activated .youtube-play-button,
+.youtube-embed-container.lyt-activated .youtube-play-button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Hide default LiteYouTube play button since we have custom one */
+.youtube-embed-container .lty-playbtn {
+  z-index: 10 !important;
+  opacity: 0 !important;
+}
+
+.youtube-embed-container .enhanced-play-btn {
+  display: none !important;
+}
+
+/* Custom play button default state - only show when NOT activated */
+.youtube-embed-container .youtube-play-button {
+  display: flex !important;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.3s ease;
+}
+
+/* Hide play button when video is playing (when iframe exists) */
+.youtube-embed-container iframe ~ div .youtube-play-button,
+.youtube-embed-container:has(iframe) .youtube-play-button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Hover effects only when not activated */
+.youtube-embed-container:not(.lyt-activated):hover .youtube-play-button {
+  opacity: 1 !important;
+  transform: scale(1.05);
+}
+
 @layer components {
   .glass-card {
     @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-glass;

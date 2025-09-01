@@ -105,7 +105,7 @@ export default function Pricing() {
               <div className="text-gray-700">Make decisions with current data</div>
             </div>
             <div className="modern-card p-6 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200">
-              <div className="text-2xl font-bold text-purple-600 mb-2">AI-Powered</div>
+              <div className="text-2xl font-bold text-blue-600 mb-2">AI-Powered</div>
               <div className="text-gray-700">Chat interface for instant answers</div>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function Pricing() {
                 console.log('Calculate ROI button clicked in Pricing!')
                 setIsROICalculatorOpen(true)
               }}
-              className="bg-white text-gray-800 border-2 border-gray-300 px-8 py-3 rounded-xl text-lg font-semibold hover:border-purple-400 hover:text-purple-600 transition-all duration-300"
+              className="bg-white text-gray-800 border-2 border-gray-300 px-8 py-3 rounded-xl text-lg font-semibold hover:border-purple-400 hover:text-blue-600 transition-all duration-300"
             >
               Calculate ROI
             </button>
@@ -173,7 +173,7 @@ export default function Pricing() {
                   
                   {/* Monthly service */}
                   <div className="text-gray-500 text-sm mb-1">Monthly service</div>
-                  <div className="text-lg font-semibold text-purple-600 mb-4">
+                  <div className="text-lg font-semibold text-blue-600 mb-4">
                     {plan.monthlyFee}
                   </div>
                   
@@ -186,7 +186,7 @@ export default function Pricing() {
                 </div>
                 
 
-                <button className="w-full bg-white text-gray-800 border-2 border-gray-300 px-6 py-3 rounded-xl font-semibold hover:border-purple-400 hover:text-purple-600 transition-all duration-300">
+                <button className="w-full bg-white text-gray-800 border-2 border-gray-300 px-6 py-3 rounded-xl font-semibold hover:border-purple-400 hover:text-blue-600 transition-all duration-300">
                   Get Custom Quote
                 </button>
               </div>
