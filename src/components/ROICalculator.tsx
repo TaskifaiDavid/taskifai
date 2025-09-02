@@ -55,22 +55,22 @@ export default function ROICalculator({ isOpen, onClose }: ROICalculatorProps) {
   const tiers = [
     {
       name: "Starter",
-      setupCost: 15000,
-      monthlyCost: 599,
+      setupCost: 7500,
+      monthlyCost: 1250,
       resellerRange: [1, 10],
       timeSavings: "20-30 hours"
     },
     {
       name: "Growth", 
-      setupCost: 30000,
-      monthlyCost: 799,
+      setupCost: 15000,
+      monthlyCost: 1600,
       resellerRange: [11, 20],
       timeSavings: "35-45 hours"
     },
     {
       name: "Enterprise",
-      setupCost: 50000,
-      monthlyCost: 999,
+      setupCost: 25000,
+      monthlyCost: 2200,
       resellerRange: [21, 50],
       timeSavings: "50+ hours"
     }
