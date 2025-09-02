@@ -10,8 +10,8 @@ export default function Pricing() {
   const plans = [
     {
       name: "Starter",
-      setupFee: "Starting from €15,000",
-      monthlyFee: "€599/month",
+      setupFee: "€7,500",
+      monthlyFee: "€1,250/month",
       resellers: "1-10 resellers",
       timeSavings: "20-30 hours/month",
       gradient: "from-blue-400 to-blue-600",
@@ -20,8 +20,8 @@ export default function Pricing() {
     },
     {
       name: "Growth",
-      setupFee: "Starting from €30,000",
-      monthlyFee: "€799/month",
+      setupFee: "€15,000",
+      monthlyFee: "€1,600/month",
       resellers: "11-20 resellers",
       timeSavings: "35-45 hours/month",
       gradient: "from-purple-400 to-purple-600",
@@ -30,8 +30,8 @@ export default function Pricing() {
     },
     {
       name: "Enterprise",
-      setupFee: "Starting from €50,000",
-      monthlyFee: "€999/month",
+      setupFee: "€25,000",
+      monthlyFee: "€2,200/month",
       resellers: "21-50 resellers",
       timeSavings: "50+ hours/month",
       gradient: "from-emerald-400 to-emerald-600",
@@ -61,12 +61,12 @@ export default function Pricing() {
               rel="noopener noreferrer"
               className="transition-transform duration-200 hover:scale-105"
             >
-              <div className="w-64 h-40 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-200">
+              <div className="w-46 h-24 rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-200 bg-transparent">
                 <LazyImage 
                   src="/bibbi-logo.png" 
                   alt="BIBBI Parfum logo - Luxury fragrance brand using TaskifAI reseller analytics platform for data management" 
-                  width={256}
-                  height={160}
+                  width={184}
+                  height={92}
                   className="w-full h-full object-contain"
                   priority={false}
                 />
@@ -186,9 +186,6 @@ export default function Pricing() {
                 </div>
                 
 
-                <button className="w-full bg-white text-gray-800 border-2 border-gray-300 px-6 py-3 rounded-xl font-semibold hover:border-purple-400 hover:text-blue-600 transition-all duration-300">
-                  Get Custom Quote
-                </button>
               </div>
             </div>
           ))}
