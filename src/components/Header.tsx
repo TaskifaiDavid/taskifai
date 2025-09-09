@@ -2,12 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
-import ROICalculator from './ROICalculator'
 import { useSwipe } from '@/hooks/useSwipe'
 import { HapticFeedback } from '@/utils/haptics'
 
 export default function Header() {
-  const [isROICalculatorOpen, setIsROICalculatorOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
@@ -45,15 +43,22 @@ export default function Header() {
   }, [pathname])
 
   const navigateToSection = (sectionId: string) => {
+    console.log('Navigating to section:', sectionId)
+    console.log('Pathname is:', pathname)
     HapticFeedback.selection() // Add haptic feedback for mobile navigation
     setIsMobileMenuOpen(false) // Close mobile menu when navigating
     if (pathname === '/') {
       const element = document.getElementById(sectionId)
+      console.log('Found element:', element)
       if (element) {
+        console.log('Scrolling to element')
         element.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        console.log('Element not found with id:', sectionId)
       }
     } else {
       // Navigate to home page with hash, useEffect will handle scrolling
+      console.log('Navigating to home with hash:', `/#${sectionId}`)
       router.push(`/#${sectionId}`)
     }
   }
@@ -89,10 +94,11 @@ export default function Header() {
     }
   }
 
-  const openROICalculator = () => {
-    console.log('ROI Calculator button clicked!')
-    HapticFeedback.medium() // Add haptic feedback for opening calculator
-    setIsROICalculatorOpen(true)
+  const scrollToPricing = () => {
+    console.log('Pricing button clicked!')
+    console.log('Current pathname:', pathname)
+    HapticFeedback.selection() // Add haptic feedback for pricing navigation
+    navigateToSection('pricing')
   }
 
   const getNavButtonClass = (isActive: boolean = false) => {
@@ -142,11 +148,11 @@ export default function Header() {
               Demo
             </button>
             <button 
-              onClick={openROICalculator}
+              onClick={scrollToPricing}
               className={getNavButtonClass()}
-              aria-label="Open ROI calculator"
+              aria-label="Navigate to pricing section"
             >
-              ROI Calculator
+              Pricing
             </button>
             <button 
               onClick={scrollToFAQ}
@@ -237,12 +243,12 @@ export default function Header() {
               Demo
             </button>
             <button 
-              onClick={openROICalculator}
+              onClick={scrollToPricing}
               className={`mobile-nav-button ${getNavButtonClass()}`}
               role="menuitem"
-              aria-label="Open ROI calculator"
+              aria-label="Navigate to pricing section"
             >
-              ROI Calculator
+              Pricing
             </button>
             <button 
               onClick={scrollToFAQ}
@@ -273,12 +279,6 @@ export default function Header() {
           </div>
         </div>
       )}
-      
-      {/* ROI Calculator Modal */}
-      <ROICalculator 
-        isOpen={isROICalculatorOpen}
-        onClose={() => setIsROICalculatorOpen(false)}
-      />
     </header>
   )
 }

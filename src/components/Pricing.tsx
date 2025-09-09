@@ -1,48 +1,66 @@
 "use client"
 
 import { useState } from "react"
-import ROICalculator from "./ROICalculator"
 import LazyImage from "./LazyImage"
 
 export default function Pricing() {
-  const [isROICalculatorOpen, setIsROICalculatorOpen] = useState(false)
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'annual'>('annual')
   
   const plans = [
     {
       name: "Starter",
-      setupFee: "€7,500",
-      monthlyFee: "€1,250/month",
+      description: "Perfect for small brands getting started with reseller analytics",
+      setupFee: 5000,
+      monthlyPrice: 799,
+      annualPrice: 8390, // 12% discount
       resellers: "1-10 resellers",
-      timeSavings: "20-30 hours/month",
       gradient: "from-blue-400 to-blue-600",
       bgGradient: "from-blue-50 to-blue-100",
       popular: false
     },
     {
       name: "Growth",
-      setupFee: "€15,000",
-      monthlyFee: "€1,600/month",
-      resellers: "11-20 resellers",
-      timeSavings: "35-45 hours/month",
+      description: "Most popular choice for scaling brands with growing reseller networks",
+      setupFee: 6500,
+      monthlyPrice: 1099,
+      annualPrice: 11540, // 12% discount
+      resellers: "11-25 resellers",
       gradient: "from-purple-400 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100",
       popular: true
     },
     {
-      name: "Enterprise",
-      setupFee: "€25,000",
-      monthlyFee: "€2,200/month",
-      resellers: "21-50 resellers",
-      timeSavings: "50+ hours/month",
+      name: "Scale",
+      description: "Enterprise-grade solution for established brands with extensive networks",
+      setupFee: 7500,
+      monthlyPrice: 1299,
+      annualPrice: 13650, // 12% discount
+      resellers: "26+ resellers",
       gradient: "from-emerald-400 to-emerald-600",
       bgGradient: "from-emerald-50 to-emerald-100",
       popular: false
     }
   ]
 
+  const formatPrice = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount)
+  }
+
+  const getPrice = (plan: typeof plans[0]) => {
+    return billingPeriod === 'monthly' ? plan.monthlyPrice : plan.annualPrice
+  }
+
+  const getSavings = (plan: typeof plans[0]) => {
+    return billingPeriod === 'annual' ? plan.monthlyPrice * 12 - plan.annualPrice : 0
+  }
 
   return (
-    <section id="pricing" className="py-24 px-6 relative overflow-hidden">
+    <section className="py-24 px-6 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50/80 via-blue-50/40 to-purple-50/60"></div>
       <div className="absolute inset-0 bg-gradient-to-tl from-cyan-50/30 via-transparent to-gray-50/40"></div>
@@ -74,44 +92,59 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Trust Badges */}
-          <div className="flex flex-wrap justify-center items-center gap-8 mb-8">
+          {/* Security Badges */}
+          <div className="flex flex-wrap justify-center items-center gap-6 mb-8">
             <div className="flex items-center gap-2 text-gray-600">
-              <div className="w-4 h-4 bg-emerald-500 rounded-full"></div>
-              <span className="font-medium">GDPR Compliant</span>
+              <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 1L5 6v5a9 9 0 0 0 5 8 9 9 0 0 0 5-8V6l-5-5z" clipRule="evenodd" />
+              </svg>
+              <span className="font-medium">Single-Tenant Security</span>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
-              <div className="w-4 h-4 bg-blue-500 rounded-full"></div>
-              <span className="font-medium">Enterprise Security</span>
+              <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" clipRule="evenodd" />
+              </svg>
+              <span className="font-medium">Dedicated Database</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-600">
+              <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+              </svg>
+              <span className="font-medium">Custom Built</span>
             </div>
           </div>
         </div>
+
+        {/* Hero Section */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">Investment & ROI</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">
+              Secure, Personalized Reseller Intelligence
+            </span>
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium mb-8">
-            Save hours monthly with automated reseller data processing. See your ROI within the first quarter.
+            Get your own dedicated database environment with custom analytics built specifically for your resellers. 
+            No shared infrastructure, no competitor data mixing, just pure insights tailored to your business.
           </p>
           
           {/* Value propositions */}
           <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
             <div className="modern-card p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200">
-              <div className="text-2xl font-bold text-emerald-600 mb-2">95% Time Savings</div>
-              <div className="text-gray-700">Eliminate manual data cleanup</div>
+              <div className="text-2xl font-bold text-emerald-600 mb-2">Maximum Security</div>
+              <div className="text-gray-700">Your data never shares infrastructure with competitors</div>
             </div>
             <div className="modern-card p-6 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
-              <div className="text-2xl font-bold text-blue-600 mb-2">Real-time Insights</div>
-              <div className="text-gray-700">Make decisions with current data</div>
+              <div className="text-2xl font-bold text-blue-600 mb-2">Custom Built</div>
+              <div className="text-gray-700">Every dashboard configured for your specific needs</div>
             </div>
             <div className="modern-card p-6 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200">
-              <div className="text-2xl font-bold text-blue-600 mb-2">AI-Powered</div>
-              <div className="text-gray-700">Chat interface for instant answers</div>
+              <div className="text-2xl font-bold text-purple-600 mb-2">White-Glove Service</div>
+              <div className="text-gray-700">30-day hands-on implementation included</div>
             </div>
           </div>
 
-          {/* Multiple CTAs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          {/* CTA */}
+          <div id="pricing" className="flex flex-wrap justify-center gap-4 mb-8">
             <button 
               onClick={() => {
                 console.log('Schedule Demo button clicked in Pricing!')
@@ -121,74 +154,117 @@ export default function Pricing() {
             >
               Schedule Demo
             </button>
-            <button 
-              onClick={() => {
-                console.log('Calculate ROI button clicked in Pricing!')
-                setIsROICalculatorOpen(true)
-              }}
-              className="bg-white text-gray-800 border-2 border-gray-300 px-8 py-3 rounded-xl text-lg font-semibold hover:border-purple-400 hover:text-blue-600 transition-all duration-300"
+          </div>
+        </div>
+
+        {/* Billing Toggle */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-gray-100 p-1 rounded-lg inline-flex">
+            <button
+              onClick={() => setBillingPeriod('monthly')}
+              className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+                billingPeriod === 'monthly'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
             >
-              Calculate ROI
+              Monthly
+            </button>
+            <button
+              onClick={() => setBillingPeriod('annual')}
+              className={`px-6 py-2 rounded-md text-sm font-medium transition-all relative ${
+                billingPeriod === 'annual'
+                  ? 'bg-white text-gray-900 shadow-sm'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Annual
+              <span className="absolute -top-2 -right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
+                Save 12%
+              </span>
             </button>
           </div>
         </div>
 
+        {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {plans.map((plan, index) => (
-            <div key={index} className="relative">
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                  <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-              <div className={`modern-card p-8 text-center hover:scale-105 transform transition-all duration-300 ${plan.popular ? 'ring-2 ring-purple-500 ring-opacity-50' : ''}`}>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${plan.bgGradient} flex items-center justify-center mx-auto mb-6 shadow-lg`}>
-                  <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${plan.gradient}`}></div>
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {plan.name}
-                </h3>
-                
-                {/* Time Savings Highlight */}
-                <div className="mb-6 p-4 bg-gradient-to-r from-emerald-50 to-emerald-100 rounded-lg border border-emerald-200">
-                  <div className="text-lg font-bold text-emerald-600 mb-1">
-                    Save {plan.timeSavings}
-                  </div>
-                  <div className="text-sm text-gray-600">Manual work eliminated</div>
-                </div>
-                
-                <div className="mb-6">
-                  {/* Complete Solution label */}
-                  <div className="text-gray-600 text-sm mb-2">Complete Solution</div>
-                  {/* Implementation investment - Primary emphasis */}
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
-                    {plan.setupFee}
-                  </div>
-                  <div className="text-sm text-gray-600 mb-4">
-                    Custom development, setup & migration included
-                  </div>
-                  
-                  {/* Monthly service */}
-                  <div className="text-gray-500 text-sm mb-1">Monthly service</div>
-                  <div className="text-lg font-semibold text-blue-600 mb-4">
-                    {plan.monthlyFee}
-                  </div>
-                  
-                </div>
-                
-                <div className="mb-8">
-                  <div className={`inline-block px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${plan.gradient} text-white`}>
-                    {plan.resellers}
-                  </div>
-                </div>
-                
+          {plans.map((plan, index) => {
+            const price = getPrice(plan)
+            const savings = getSavings(plan)
+            const totalFirstYear = plan.setupFee + price
 
+            return (
+              <div key={index} className="relative">
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
+                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <div className={`modern-card p-8 text-center hover:scale-105 transform transition-all duration-300 ${plan.popular ? 'ring-2 ring-purple-500 ring-opacity-50' : ''}`}>
+                  
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${plan.bgGradient} flex items-center justify-center mx-auto mb-6 shadow-lg`}>
+                    <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${plan.gradient}`}></div>
+                  </div>
+                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    {plan.name}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-6 text-sm">{plan.description}</p>
+
+                  {/* Setup Fee */}
+                  <div className="mb-4">
+                    <div className="text-sm text-gray-600">One-time setup</div>
+                    <div className="text-2xl font-bold text-gray-900">{formatPrice(plan.setupFee)}</div>
+                    <div className="text-xs text-gray-500">Custom development & migration included</div>
+                  </div>
+
+                  {/* Monthly/Annual Price */}
+                  <div className="mb-4">
+                    <div className="text-sm text-gray-600">
+                      {billingPeriod === 'monthly' ? 'Monthly service' : 'Annual service'}
+                    </div>
+                    <div className="flex items-baseline justify-center gap-2">
+                      <span className="text-3xl font-bold text-gray-900">{formatPrice(price)}</span>
+                      <span className="text-gray-600">
+                        {billingPeriod === 'monthly' ? '/month' : '/year'}
+                      </span>
+                    </div>
+                    {billingPeriod === 'annual' && savings > 0 && (
+                      <div className="text-sm text-green-600 mt-1">
+                        Save {formatPrice(savings)} vs monthly
+                      </div>
+                    )}
+                  </div>
+
+
+                  {/* Resellers */}
+                  <div className="mb-6">
+                    <div className={`inline-block px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${plan.gradient} text-white`}>
+                      {plan.resellers}
+                    </div>
+                  </div>
+
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={() => {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                    className={`w-full py-3 px-6 rounded-lg font-medium transition-all ${
+                      plan.popular
+                        ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                    }`}
+                  >
+                    Get Started
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* What's Included Section */}
@@ -256,30 +332,32 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* Additional Services */}
-        <div className="text-center">
-          <div className="modern-card p-8 max-w-2xl mx-auto bg-gradient-to-br from-white via-orange-50/20 to-yellow-50/30 border-2 border-orange-100">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">
-              <span className="text-accent-orange">Additional Services</span>
+        {/* ROI Section */}
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-10">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Typical ROI in First Year
             </h3>
-            <div className="space-y-3 text-gray-700">
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                <span><strong>Additional reseller parser:</strong> €1,500 each</span>
+            <p className="text-gray-600 mb-8">
+              Most clients see their investment pay for itself through improved reseller performance
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-600 mb-2">3-5%</div>
+                <div className="text-gray-600">Average increase in reseller revenue</div>
               </div>
-              <div className="text-sm text-gray-600 mt-4">
-                Need more resellers than Enterprise supports? Contact us for custom enterprise solutions.
+              <div className="text-center">
+                <div className="text-3xl font-bold text-purple-600 mb-2">40%</div>
+                <div className="text-gray-600">Reduction in manual reporting time</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-600 mb-2">25%</div>
+                <div className="text-gray-600">Faster identification of top performers</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* ROI Calculator Modal */}
-      <ROICalculator 
-        isOpen={isROICalculatorOpen}
-        onClose={() => setIsROICalculatorOpen(false)}
-      />
     </section>
   )
 }
