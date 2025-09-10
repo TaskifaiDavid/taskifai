@@ -11,8 +11,31 @@ function getRateLimitKey(request: NextRequest): string {
 }
 
 function checkRateLimit(key: string): { allowed: boolean; remaining: number } {
-  // Disabled for testing
-  return { allowed: true, remaining: 999 }
+  const now = Date.now()
+  const windowMs = 60 * 1000 // 1 minute window
+  const maxRequests = 1 // 1 request per minute
+  
+  const userLimit = rateLimitStore.get(key)
+  
+  if (!userLimit || now > userLimit.resetTime) {
+    // First request or window has reset
+    rateLimitStore.set(key, {
+      count: 1,
+      resetTime: now + windowMs
+    })
+    return { allowed: true, remaining: maxRequests - 1 }
+  }
+  
+  if (userLimit.count >= maxRequests) {
+    // Rate limit exceeded
+    return { allowed: false, remaining: 0 }
+  }
+  
+  // Increment count
+  userLimit.count += 1
+  rateLimitStore.set(key, userLimit)
+  
+  return { allowed: true, remaining: maxRequests - userLimit.count }
 }
 
 function validateInput(data: any): { isValid: boolean; errors: string[] } {
@@ -140,13 +163,13 @@ export async function POST(request: NextRequest) {
 
     if (!allowed) {
       return NextResponse.json(
-        { error: 'Too many applications submitted. Please wait before submitting again.' },
+        { error: 'Too many applications submitted. Please wait 1 minute before submitting again.' },
         { 
           status: 429,
           headers: {
             ...corsHeaders,
             'X-RateLimit-Remaining': '0',
-            'X-RateLimit-Reset': Math.ceil(Date.now() / 1000 + 900).toString()
+            'X-RateLimit-Reset': Math.ceil(Date.now() / 1000 + 60).toString()
           }
         }
       )
