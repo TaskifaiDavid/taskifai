@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next"
 import "./globals.css"
+import { Analytics } from "@vercel/analytics/next"
 import CookieConsent from "@/components/CookieConsent"
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister"
 import MobilePerformanceProvider from "@/components/MobilePerformanceProvider"
@@ -232,6 +233,7 @@ export default function RootLayout({
           <CookieConsent />
           <ServiceWorkerRegister />
         </MobilePerformanceProvider>
+        <Analytics />
       </body>
     </html>
   )
