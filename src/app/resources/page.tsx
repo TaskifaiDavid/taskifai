@@ -2,9 +2,12 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Reseller Analytics Resources | Excel Automation Guides & Templates',
-  description: 'Free resources for reseller data management: Excel templates, automation guides, ROI calculators, and best practices for spreadsheet optimization.',
+  title: 'Free Reseller Analytics Resources | Templates & Guides - TaskifAI',
+  description: 'Free Excel templates, automation guides, ROI calculators, and best practices for reseller data management. Download resources and boost productivity.',
   keywords: 'reseller analytics resources, excel templates, automation guides, data management templates, spreadsheet optimization',
+  alternates: {
+    canonical: 'https://www.taskifai.com/resources'
+  }
 }
 
 const resources = [

@@ -1,52 +1,55 @@
 import { MetadataRoute } from 'next'
  
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://www.taskifai.com'
+  const currentDate = new Date()
+
   return [
     {
-      url: 'https://www.taskifai.com',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
+      url: baseUrl,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: 'https://www.taskifai.com/excel-automation-guide',
-      lastModified: new Date(),
+      url: `${baseUrl}/excel-automation-guide`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://www.taskifai.com/reseller-analytics-comparison',
-      lastModified: new Date(),
+      url: `${baseUrl}/reseller-analytics-comparison`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://www.taskifai.com/how-it-works-detailed',
-      lastModified: new Date(),
+      url: `${baseUrl}/how-it-works-detailed`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://www.taskifai.com/features',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      url: `${baseUrl}/features`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.9,
     },
     {
-      url: 'https://www.taskifai.com/resources',
-      lastModified: new Date(),
+      url: `${baseUrl}/resources`,
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: 'https://www.taskifai.com/privacy',
-      lastModified: new Date(),
+      url: `${baseUrl}/privacy`,
+      lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: 'https://www.taskifai.com/terms',
-      lastModified: new Date(),
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
       changeFrequency: 'yearly',
       priority: 0.3,
     },

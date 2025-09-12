@@ -1,5 +1,15 @@
+import { Metadata } from 'next'
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - TaskifAI Reseller Analytics',
+  description: 'TaskifAI privacy policy and data protection information. Learn how we protect your data in compliance with GDPR and Swedish data protection laws.',
+  robots: 'index, follow',
+  alternates: {
+    canonical: 'https://www.taskifai.com/privacy'
+  }
+}
 
 export default function PrivacyPolicy() {
   return (

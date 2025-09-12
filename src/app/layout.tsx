@@ -9,8 +9,8 @@ import MobilePerformanceProvider from "@/components/MobilePerformanceProvider"
 // If you need Inter specifically, download and host it locally
 
 export const metadata: Metadata = {
-  title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
-  description: "Transform chaotic reseller data into actionable insights with AI-powered automation. Our platform eliminates 95% of manual work while providing real-time analytics and custom dashboards for growing brands.",
+  title: "AI Reseller Analytics Platform | TaskifAI Automation",
+  description: "Transform messy reseller spreadsheets into automated insights with AI. Get 95% time savings, real-time dashboards, and actionable analytics. Free consultation available.",
   keywords: "excel spreadsheet automation, reseller data management, ai-powered data cleaning, automated data processing software, channel partner analytics, reseller analytics platform, brand analytics dashboard, distributor data analysis, business intelligence, spreadsheet automation, data visualization",
   authors: [{ name: "TaskifAI" }],
   appleWebApp: {
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
-    description: "Transform chaotic reseller data into actionable insights with AI-powered automation. Our platform eliminates 95% of manual work while providing real-time analytics for growing brands.",
+    title: "AI Reseller Analytics Platform | TaskifAI Automation",
+    description: "Transform messy reseller spreadsheets into automated insights with AI. Get 95% time savings, real-time dashboards, and actionable analytics.",
     type: "website",
     locale: "en_US",
     siteName: "TaskifAI - Reseller Analytics Platform",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
-    description: "Transform chaotic reseller data into actionable insights with AI-powered automation. Eliminate 95% of manual work with real-time analytics for growing brands.",
+    title: "AI Reseller Analytics Platform | TaskifAI Automation",
+    description: "Transform messy reseller spreadsheets into automated insights with AI. Get 95% time savings and real-time dashboards. Free consultation available.",
     images: ["https://www.taskifai.com/og-image.jpg"],
     creator: "@TaskifAI"
   },
@@ -173,6 +173,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="preload" href="https://snap.licdn.com/li.lms-analytics/insight.min.js" as="script" />
+        <link rel="canonical" href="https://www.taskifai.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />

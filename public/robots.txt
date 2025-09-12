@@ -1,0 +1,32 @@
+# Robots.txt for TaskifAI Reseller Analytics Website
+
+User-agent: *
+Allow: /
+
+# Disallow admin and development files
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.json$
+
+# Allow specific important files
+Allow: /api/sitemap
+Allow: /manifest.json
+Allow: /sw.js
+
+# Sitemap location
+Sitemap: https://www.taskifai.com/sitemap.xml
+
+# Crawl delay to prevent overloading
+Crawl-delay: 1
+
+# Additional search engine specific directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /

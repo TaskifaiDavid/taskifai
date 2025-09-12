@@ -2,9 +2,12 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Excel Spreadsheet Automation Features | AI-Powered Reseller Data Management',
-  description: 'Discover powerful features for automated Excel processing, AI data cleaning, real-time dashboards, and hands-free reseller analytics. See how we transform spreadsheet chaos.',
+  title: 'Reseller Analytics Features | AI Data Automation - TaskifAI',
+  description: 'Discover AI-powered data cleaning, real-time dashboards, and automated Excel processing. Transform messy spreadsheets into actionable insights. Free demo available.',
   keywords: 'excel automation features, AI data cleaning, automated spreadsheet processing, reseller analytics features, data management tools',
+  alternates: {
+    canonical: 'https://www.taskifai.com/features'
+  }
 }
 
 const features = [

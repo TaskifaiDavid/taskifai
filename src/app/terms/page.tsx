@@ -1,5 +1,15 @@
+import { Metadata } from 'next'
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
+
+export const metadata: Metadata = {
+  title: 'Terms of Service - TaskifAI Reseller Analytics',
+  description: 'TaskifAI terms of service and conditions for using our AI-powered reseller analytics platform. Review our service terms and user agreements.',
+  robots: 'index, follow',
+  alternates: {
+    canonical: 'https://www.taskifai.com/terms'
+  }
+}
 
 export default function TermsOfService() {
   return (
