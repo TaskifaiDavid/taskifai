@@ -10,7 +10,7 @@ import MobilePerformanceProvider from "@/components/MobilePerformanceProvider"
 
 export const metadata: Metadata = {
   title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
-  description: "Transform messy reseller spreadsheets into clean, automated insights with AI-powered data processing. Excel spreadsheet automation that saves 95% of manual work. Custom reseller data management platform for growing brands with real-time dashboards and natural language queries.",
+  description: "Transform chaotic reseller data into actionable insights with AI-powered automation. Our platform eliminates 95% of manual work while providing real-time analytics and custom dashboards for growing brands.",
   keywords: "excel spreadsheet automation, reseller data management, ai-powered data cleaning, automated data processing software, channel partner analytics, reseller analytics platform, brand analytics dashboard, distributor data analysis, business intelligence, spreadsheet automation, data visualization",
   authors: [{ name: "TaskifAI" }],
   appleWebApp: {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
-    description: "Transform messy reseller spreadsheets into automated insights. Excel spreadsheet automation platform that saves 95% of manual work. AI-powered data cleaning and real-time dashboards for growing brands.",
+    description: "Transform chaotic reseller data into actionable insights with AI-powered automation. Our platform eliminates 95% of manual work while providing real-time analytics for growing brands.",
     type: "website",
     locale: "en_US",
     siteName: "TaskifAI - Reseller Analytics Platform",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Excel Spreadsheet Automation | AI-Powered Reseller Data Management",
-    description: "Transform messy reseller spreadsheets into automated insights. Excel spreadsheet automation that saves 95% of manual work. AI-powered data cleaning for growing brands.",
+    description: "Transform chaotic reseller data into actionable insights with AI-powered automation. Eliminate 95% of manual work with real-time analytics for growing brands.",
     images: ["https://www.taskifai.com/og-image.jpg"],
     creator: "@TaskifAI"
   },

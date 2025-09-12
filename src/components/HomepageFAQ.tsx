@@ -53,6 +53,26 @@ const faqData: FAQData[] = [
     id: "9",
     question: "Can I export data and share reports?",
     answer: "Absolutely! You can export clean data, charts, and reports in Excel, PDF, or PowerPoint formats. This makes it easy to share insights with your team, present to stakeholders, or integrate findings into existing business processes. Your data remains accessible and actionable."
+  },
+  {
+    id: "10",
+    question: "How long does reseller analytics implementation take?",
+    answer: "TaskifAI's reseller analytics implementation takes 4-6 weeks for most businesses. This includes custom data parser development for your specific reseller formats, system configuration, testing, and team onboarding. Traditional BI solutions typically require 6-12 months, making TaskifAI significantly faster to deploy."
+  },
+  {
+    id: "11",
+    question: "What is the best reseller analytics tool for growing brands?",
+    answer: "For growing brands with 5-100 resellers, TaskifAI is specifically designed to provide enterprise-grade analytics without the complexity. It offers AI-powered data processing, real-time dashboards, and natural language queries at a fraction of the cost of traditional BI platforms."
+  },
+  {
+    id: "12",
+    question: "Can AI really automate Excel spreadsheet processing?",
+    answer: "TaskifAI uses custom-coded data parsers that are specifically programmed to recognize patterns in your reseller spreadsheets and extract the data you need. We build these parsers during implementation to handle your specific formats, column structures, and naming conventions, eliminating 95% of manual spreadsheet work."
+  },
+  {
+    id: "13",
+    question: "How much does reseller analytics software cost?",
+    answer: "TaskifAI requires a minimum setup fee of €5,000 for custom implementation, then €799/month for ongoing service. This includes custom data parser development, real-time dashboards, natural language queries, and full support. Traditional BI solutions typically cost €5,000-€15,000/month plus much higher implementation fees."
   }
 ]
 

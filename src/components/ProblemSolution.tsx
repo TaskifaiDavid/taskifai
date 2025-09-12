@@ -79,7 +79,7 @@ export default function ProblemSolution() {
             
             <p className="text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
               This means <span className="text-accent-emerald font-semibold">no more manual data cleanup</span> and <span className="text-accent-purple font-semibold">no more uncertainty</span>. 
-              You get clear answers on what's selling, where it's working, and what needs your attention.
+              You get clear answers on what's selling, where it's working, and what needs your attention. <a href="/reseller-analytics-comparison" className="text-blue-600 hover:text-blue-800">Compare solutions</a> to see why TaskifAI works better.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">

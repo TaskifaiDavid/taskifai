@@ -45,7 +45,7 @@ export default function Hero() {
               </h1>
               
               <p className="text-base sm:text-lg md:text-2xl text-gray-700 mb-8 md:mb-12 leading-relaxed font-medium max-w-4xl mx-auto px-4 sm:px-0">
-                TaskifAI turns inconsistent reseller spreadsheets into reliable insights, automatically. Save hours per month, close your books faster, and give your team confidence in the numbers.
+                TaskifAI turns inconsistent reseller spreadsheets into reliable insights, automatically. <a href="/excel-automation-guide" className="text-blue-600 hover:text-blue-800">Automate your Excel processing</a>, close your books faster, and give your team confidence in the numbers.
               </p>
               
               {/* Dual CTA Strategy */}
