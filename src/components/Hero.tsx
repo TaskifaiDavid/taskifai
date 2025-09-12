@@ -33,23 +33,23 @@ export default function Hero() {
       <div className="absolute bottom-40 left-20 w-24 h-24 bg-gradient-to-br from-emerald-400 to-cyan-500 rounded-full opacity-20 animate-float animation-delay-4000"></div>
       <div className="absolute bottom-20 right-10 w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full opacity-20 animate-float"></div>
       
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <div className="modern-card p-6 md:p-12 backdrop-blur-sm bg-white/70">
-          {/* Vertical Stack: Content Above, Video Below */}
-          <div className="text-center space-y-8">
+      <div className="relative z-10 w-full max-w-[81.6rem] mx-auto px-4">
+        <div className="modern-card p-8 md:p-16 backdrop-blur-sm bg-white/70">
+          {/* Desktop: Horizontal Split, Mobile: Vertical Stack */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             
-            {/* Header Content */}
-            <div className="max-w-5xl mx-auto">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-light md:font-extralight mb-6 md:mb-8 leading-tight tracking-tight font-display">
-                <span className="gradient-text">Reseller data made simple</span>
+            {/* Left Side: Header Content */}
+            <div className="text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light md:font-extralight mb-6 md:mb-8 leading-tight tracking-tight font-display text-balance">
+                <span className="gradient-text">Reseller data made&nbsp;simple</span>
               </h1>
               
-              <p className="text-base sm:text-lg md:text-2xl text-gray-700 mb-8 md:mb-12 leading-relaxed font-light max-w-4xl mx-auto px-4 sm:px-0">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 mb-8 md:mb-12 leading-relaxed font-light px-4 sm:px-0">
                 Stop fighting endless Excel formats. TaskifAI cleans, standardizes, and turns reseller reports into instant insights you can trust. <a href="/excel-automation-guide" className="text-blue-600 hover:text-blue-800">See how it works</a>.
               </p>
               
               {/* Dual CTA Strategy */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16 px-4 sm:px-0">
+              <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-4 justify-center lg:justify-start mb-8 lg:mb-0 px-4 sm:px-0">
                 <button
                   onClick={scrollToContact}
                   className="gradient-button text-lg sm:text-xl px-8 sm:px-12 py-4"
@@ -66,13 +66,13 @@ export default function Hero() {
               </div>
             </div>
             
-            {/* Massive Video Section */}
+            {/* Right Side: Video Section */}
             <div id="hero-video" className="w-full scroll-mt-8">
               <div data-video-trigger>
                 <VideoEmbed
                   src="https://youtu.be/BM_kanRjDAI"
                   title="TaskifAI Product Demo"
-                  aspectRatio="21/9"
+                  aspectRatio="16/9"
                   className="w-full shadow-2xl"
                   cacheBust={true}
                 />

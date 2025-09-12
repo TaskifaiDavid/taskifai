@@ -211,18 +211,20 @@ export default function VideoEmbed({
               <LiteYouTubeEmbed
                 id={youtubeVideoId}
                 title={title}
-                poster="hqdefault" // Use more reliable thumbnail size
+                poster="hqdefault" // Use standard quality thumbnail for better fit in containers
                 noCookie={true}
                 playlist={false}
-                params=""
                 adNetwork={false}
-                aspectHeight={aspectRatio?.split('/')[1] ? parseInt(aspectRatio.split('/')[1]) : 9}
-                aspectWidth={aspectRatio?.split('/')[0] ? parseInt(aspectRatio.split('/')[0]) : 16}
+                aspectHeight={aspectRatio && aspectRatio.includes('/') ? parseInt(aspectRatio.split('/')[1]) || 9 : 9}
+                aspectWidth={aspectRatio && aspectRatio.includes('/') ? parseInt(aspectRatio.split('/')[0]) || 16 : 16}
                 iframeClass="absolute inset-0 w-full h-full rounded-xl"
                 playerClass="lty-playbtn enhanced-play-btn"
                 wrapperClass="w-full h-full rounded-xl overflow-hidden"
+                style={{
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
                 activatedClass="lyt-activated"
-                thumbnail={finalThumbnail || undefined}
               />
               
               {/* Custom play button overlay for better visibility */}

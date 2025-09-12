@@ -8,6 +8,11 @@
   --foreground: #1a1a1a;
 }
 
+/* Global 15% scale down */
+html {
+  font-size: 0.85rem; /* 85% of default 16px = 13.6px */
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -67,6 +72,31 @@ body {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
+}
+
+/* Center and zoom YouTube thumbnail to eliminate black borders - aggressive override */
+.youtube-embed-container lite-youtube,
+.youtube-embed-container lite-youtube::before,
+lite-youtube,
+lite-youtube::before,
+[data-title] {
+  background-size: 120% !important;
+  background-position: center !important;
+}
+
+.youtube-embed-container img,
+lite-youtube img {
+  object-fit: cover !important;
+  object-position: center !important;
+  width: 120% !important;
+  height: 120% !important;
+  transform: scale(1.2) !important;
+}
+
+/* Direct targeting of YouTube thumbnail with zoom */
+.youtube-embed-container [style*="background-image"] {
+  background-size: 120% !important;
+  background-position: center !important;
 }
 
 /* Hover effects only when not activated */
