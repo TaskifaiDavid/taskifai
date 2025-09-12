@@ -62,7 +62,7 @@ export default function ResellerAnalyticsComparison() {
       <section className="relative pt-24 pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-light mb-8 leading-tight">
             <span className="gradient-text">Choose the Right Reseller Analytics Platform</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
@@ -70,7 +70,7 @@ export default function ResellerAnalyticsComparison() {
           </p>
           <Link 
             href="/#contact"
-            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-4 px-8 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             See TaskifAI in Action
           </Link>
@@ -80,7 +80,7 @@ export default function ResellerAnalyticsComparison() {
       {/* Comparison Table */}
       <section className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-light text-center mb-16">
             Platform <span className="gradient-text">Comparison</span> Matrix
           </h2>
           
@@ -88,18 +88,18 @@ export default function ResellerAnalyticsComparison() {
             <table className="w-full modern-card">
               <thead>
                 <tr className="bg-gradient-to-r from-blue-50 to-purple-50">
-                  <th className="text-left p-6 text-lg font-bold text-gray-900">Feature</th>
-                  <th className="text-center p-6 text-lg font-bold text-blue-600">TaskifAI</th>
-                  <th className="text-center p-6 text-lg font-bold text-gray-600">Traditional BI</th>
-                  <th className="text-center p-6 text-lg font-bold text-gray-600">Excel Manual</th>
-                  <th className="text-center p-6 text-lg font-bold text-gray-600">Custom Build</th>
+                  <th className="text-left p-6 text-lg font-normal text-gray-900">Feature</th>
+                  <th className="text-center p-6 text-lg font-normal text-blue-600">TaskifAI</th>
+                  <th className="text-center p-6 text-lg font-normal text-gray-600">Traditional BI</th>
+                  <th className="text-center p-6 text-lg font-normal text-gray-600">Excel Manual</th>
+                  <th className="text-center p-6 text-lg font-normal text-gray-600">Custom Build</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonData.map((row, index) => (
                   <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                    <td className="p-6 font-semibold text-gray-900">{row.feature}</td>
-                    <td className="p-6 text-center font-bold text-blue-600">{row.taskifai}</td>
+                    <td className="p-6 font-normal text-gray-900">{row.feature}</td>
+                    <td className="p-6 text-center font-normal text-blue-600">{row.taskifai}</td>
                     <td className="p-6 text-center text-gray-600">{row.traditional}</td>
                     <td className="p-6 text-center text-gray-600">{row.excel}</td>
                     <td className="p-6 text-center text-gray-600">{row.custom}</td>
@@ -114,13 +114,13 @@ export default function ResellerAnalyticsComparison() {
       {/* In-Depth Analysis */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-light text-center mb-16">
             <span className="gradient-text">Detailed</span> Platform Analysis
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12">
             <div className="modern-card p-8 border-l-4 border-blue-500">
-              <h3 className="text-2xl font-bold text-blue-700 mb-6">🏆 TaskifAI - AI-Powered Analytics</h3>
+              <h3 className="text-2xl font-normal text-blue-700 mb-6">🏆 TaskifAI - AI-Powered Analytics</h3>
               <div className="space-y-4 mb-6">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
@@ -145,7 +145,7 @@ export default function ResellerAnalyticsComparison() {
             </div>
 
             <div className="modern-card p-8 border-l-4 border-gray-400">
-              <h3 className="text-2xl font-bold text-gray-700 mb-6">🏢 Traditional BI Platforms</h3>
+              <h3 className="text-2xl font-normal text-gray-700 mb-6">🏢 Traditional BI Platforms</h3>
               <div className="space-y-4 mb-6">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-red-500 rounded-full"></div>
@@ -175,7 +175,7 @@ export default function ResellerAnalyticsComparison() {
       {/* FAQ Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-light text-center mb-12">
             Choosing the Right Reseller Analytics Solution
           </h2>
           
@@ -187,7 +187,7 @@ export default function ResellerAnalyticsComparison() {
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                    <h3 className="text-lg font-normal text-gray-900 pr-4">
                       {item.question}
                     </h3>
                     <div className={`transform transition-transform ${expandedFaq === index ? 'rotate-180' : ''}`}>
@@ -213,7 +213,7 @@ export default function ResellerAnalyticsComparison() {
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-purple-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8">
+          <h2 className="text-3xl md:text-5xl font-light mb-8">
             Ready to See TaskifAI in Action?
           </h2>
           <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">
@@ -222,13 +222,13 @@ export default function ResellerAnalyticsComparison() {
           <div className="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
             <Link 
               href="/#contact"
-              className="inline-block bg-white text-purple-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-block bg-white text-purple-600 font-medium py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Book Demo Call
             </Link>
             <Link 
               href="/excel-automation-guide"
-              className="inline-block border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-purple-600 transition-all duration-300"
+              className="inline-block border-2 border-white text-white font-medium py-4 px-8 rounded-lg hover:bg-white hover:text-purple-600 transition-all duration-300"
             >
               Learn About Automation
             </Link>

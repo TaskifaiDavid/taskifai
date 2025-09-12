@@ -33,7 +33,7 @@ export default function Solution() {
     <section className="py-16 px-4 bg-blue-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6">
             How It Works
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -48,7 +48,7 @@ export default function Solution() {
                 <div className="text-blue-600 mb-4">
                   {step.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-xl font-normal text-gray-900 mb-4">
                   {step.title}
                 </h3>
                 <p className="text-gray-600">
@@ -69,8 +69,8 @@ export default function Solution() {
 
         <div className="mt-12 text-center">
           <div className="bg-white rounded-lg p-6 inline-block shadow-lg">
-            <p className="text-lg font-semibold text-gray-900 mb-2">Implementation Timeline</p>
-            <p className="text-blue-600 font-bold text-2xl">30 Days</p>
+            <p className="text-lg font-normal text-gray-900 mb-2">Implementation Timeline</p>
+            <p className="text-blue-600 font-normal text-2xl">30 Days</p>
             <p className="text-sm text-gray-600">From kickoff to live dashboard</p>
           </div>
         </div>

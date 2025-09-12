@@ -16,12 +16,12 @@ export default function ApplyPage() {
         <div className="max-w-4xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-light mb-6">
               <span className="text-gray-900">Content Creator & Brand Builder</span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600">Application</span>
             </h1>
-            <p className="text-xl text-gray-700 mb-4 font-medium">
+            <p className="text-xl text-gray-700 mb-4">
               15% Revenue Share + Equity • Malmö • Partnership Role
             </p>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">

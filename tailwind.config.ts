@@ -10,6 +10,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         'sans': [
+          '"Figtree"',
+          '"Inter"',
           'system-ui',
           '-apple-system',
           'BlinkMacSystemFont',
@@ -17,6 +19,12 @@ const config: Config = {
           'Roboto',
           '"Helvetica Neue"',
           'Arial',
+          'sans-serif'
+        ],
+        'display': [
+          '"Figtree"',
+          '"Inter"',
+          'system-ui',
           'sans-serif'
         ]
       },

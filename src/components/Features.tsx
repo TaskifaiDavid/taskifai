@@ -60,7 +60,7 @@ export default function Features() {
     <section className="py-16 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6">
             What's Included
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -76,7 +76,7 @@ export default function Features() {
                   {feature.icon}
                 </div>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              <h3 className="text-lg font-normal text-gray-900 mb-3">
                 {feature.title}
               </h3>
               <p className="text-gray-600">
@@ -88,7 +88,7 @@ export default function Features() {
 
         <div className="mt-12 text-center">
           <div className="bg-blue-50 rounded-lg p-6 max-w-2xl mx-auto">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Plus Enterprise Features</h3>
+            <h3 className="text-lg font-normal text-gray-900 mb-2">Plus Enterprise Features</h3>
             <p className="text-gray-600">
               Advanced forecasting, white-label options, API access, and dedicated support available
             </p>

@@ -31,11 +31,11 @@ export default function AIChatDemo() {
       
       <div className="relative z-10 max-w-5xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600">AI-Powered</span>
             <span className="text-gray-900"> Insights</span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Ask questions about your data in plain English and get instant, intelligent responses
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function AIChatDemo() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                   </svg>
                 </div>
-                <span className="text-white font-semibold">AI Analytics Chat</span>
+                <span className="text-white font-normal">AI Analytics Chat</span>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function AIChatDemo() {
                           </svg>
                         </div>
                       )}
-                      <div className="whitespace-pre-line text-sm font-medium leading-relaxed">{message.text}</div>
+                      <div className="whitespace-pre-line text-sm leading-relaxed">{message.text}</div>
                     </div>
                   </div>
                 </div>
@@ -96,7 +96,7 @@ export default function AIChatDemo() {
                 disabled
               />
               <button 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-medium opacity-50 cursor-not-allowed shadow-lg"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-xl opacity-50 cursor-not-allowed shadow-lg"
                 disabled
               >
                 Send

@@ -10,7 +10,7 @@ export default function Problem() {
     <section className="py-16 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6">
             Say Goodbye to Manual Reseller Reports
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -26,7 +26,7 @@ export default function Problem() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </div>
-              <p className="text-gray-700 font-medium">{point}</p>
+              <p className="text-gray-700">{point}</p>
             </div>
           ))}
         </div>

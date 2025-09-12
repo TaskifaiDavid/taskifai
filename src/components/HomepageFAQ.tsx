@@ -96,7 +96,7 @@ function FAQItem({ faq, isCompact = false }: FAQItemProps) {
           <div className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xs font-medium">
             Q
           </div>
-          <h3 className={`font-semibold text-gray-800 pr-4 ${isCompact ? 'text-base' : 'text-lg'}`}>
+          <h3 className={`font-normal text-gray-800 pr-4 ${isCompact ? 'text-base' : 'text-lg'}`}>
             {faq.question}
           </h3>
         </div>
@@ -176,7 +176,7 @@ export default function HomepageFAQ() {
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Header */}
         <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-light mb-4">
             <span className="text-gray-900">Common </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">Questions</span>
           </h2>
@@ -196,7 +196,7 @@ export default function HomepageFAQ() {
         <div className="text-center">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-purple-200 rounded-xl text-purple-700 font-medium hover:bg-purple-50 hover:border-purple-300 transition-all duration-200 shadow-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-purple-200 rounded-xl text-purple-700 hover:bg-purple-50 hover:border-purple-300 transition-all duration-200 shadow-sm"
           >
             {isExpanded ? (
               <>

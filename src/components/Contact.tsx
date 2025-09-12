@@ -95,10 +95,10 @@ export default function Contact() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl font-light mb-6">
               <span className="gradient-text">Thank you!</span>
             </h2>
-            <p className="text-xl text-gray-700 mb-8 font-medium">
+            <p className="text-xl text-gray-700 mb-8">
               We'll be in touch within 24 hours to discuss your reseller analytics needs.
             </p>
             <button 
@@ -120,12 +120,12 @@ export default function Contact() {
       <div className="absolute inset-0 bg-gradient-to-tl from-orange-50/40 via-transparent to-pink-50/40"></div>
       
       <div className="relative z-10 max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <h2 className="text-4xl md:text-5xl font-light mb-6">
           <span className="text-gray-900">Are you ready to take control over your </span>
           <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-600 to-blue-600">sell-out data?</span>
         </h2>
-        <p className="text-xl text-gray-700 mb-12 font-medium">
+        <p className="text-xl text-gray-700 mb-12">
           If this sounds like something your team deals with, send us a message and we'll show you how it works.
         </p>
 
@@ -152,7 +152,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Your name"
                   required
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500 font-medium"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500"
                 />
               </div>
               <div>
@@ -163,7 +163,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="Work email"
                   required
-                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500 font-medium"
+                  className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500"
                 />
               </div>
             </div>
@@ -176,7 +176,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Company name"
                 required
-                className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500 font-medium"
+                className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500"
               />
             </div>
             
@@ -188,7 +188,7 @@ export default function Contact() {
                 placeholder="Tell us about your reseller data challenges..."
                 rows={5}
                 required
-                className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500 font-medium resize-none"
+                className="w-full px-4 py-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white shadow-sm text-gray-900 placeholder-gray-500 resize-none"
               />
             </div>
             
@@ -212,7 +212,7 @@ export default function Contact() {
                     href="/privacy" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-purple-700 underline font-medium"
+                    className="text-blue-600 hover:text-purple-700 underline"
                   >
                     Privacy Policy
                   </Link>
@@ -221,7 +221,7 @@ export default function Contact() {
                     href="/terms" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-purple-700 underline font-medium"
+                    className="text-blue-600 hover:text-purple-700 underline"
                   >
                     Terms of Service
                   </Link>
@@ -243,15 +243,15 @@ export default function Contact() {
           
           <div className="mt-8 grid md:grid-cols-3 gap-6 text-center">
             <div className="p-4">
-              <div className="text-2xl font-bold text-accent-emerald mb-1">24hrs</div>
+              <div className="text-2xl font-normal text-accent-emerald mb-1">24hrs</div>
               <div className="text-gray-600 text-sm">Response time</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl font-bold text-accent-purple mb-1">Free</div>
+              <div className="text-2xl font-normal text-accent-purple mb-1">Free</div>
               <div className="text-gray-600 text-sm">Consultation</div>
             </div>
             <div className="p-4">
-              <div className="text-2xl font-bold text-accent-pink mb-1">Custom</div>
+              <div className="text-2xl font-normal text-accent-pink mb-1">Custom</div>
               <div className="text-gray-600 text-sm">Demo</div>
             </div>
           </div>

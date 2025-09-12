@@ -26,7 +26,7 @@ export default function TargetAudience() {
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6">
             Designed for Consumer Brands
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -40,7 +40,7 @@ export default function TargetAudience() {
               <div className="flex items-start gap-4">
                 <div className="text-3xl">{industry.icon}</div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-normal text-gray-900 mb-3">
                     {industry.name}
                   </h3>
                   <p className="text-gray-600">
@@ -54,7 +54,7 @@ export default function TargetAudience() {
 
         <div className="mt-12 text-center">
           <div className="bg-blue-100 rounded-lg p-8 max-w-3xl mx-auto">
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">
+            <h3 className="text-xl font-normal text-gray-900 mb-4">
               Is Your Brand Ready?
             </h3>
             <div className="grid md:grid-cols-3 gap-6 text-sm">

@@ -40,12 +40,12 @@ export default function Hero() {
             
             {/* Header Content */}
             <div className="max-w-5xl mx-auto">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 md:mb-8 leading-tight">
-                <span className="gradient-text">From messy spreadsheets to decisions you can trust</span>
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-light md:font-extralight mb-6 md:mb-8 leading-tight tracking-tight font-display">
+                <span className="gradient-text">Reseller data made simple</span>
               </h1>
               
-              <p className="text-base sm:text-lg md:text-2xl text-gray-700 mb-8 md:mb-12 leading-relaxed font-medium max-w-4xl mx-auto px-4 sm:px-0">
-                TaskifAI turns inconsistent reseller spreadsheets into reliable insights, automatically. <a href="/excel-automation-guide" className="text-blue-600 hover:text-blue-800">Automate your Excel processing</a>, close your books faster, and give your team confidence in the numbers.
+              <p className="text-base sm:text-lg md:text-2xl text-gray-700 mb-8 md:mb-12 leading-relaxed font-light max-w-4xl mx-auto px-4 sm:px-0">
+                Stop fighting endless Excel formats. TaskifAI cleans, standardizes, and turns reseller reports into instant insights you can trust. <a href="/excel-automation-guide" className="text-blue-600 hover:text-blue-800">See how it works</a>.
               </p>
               
               {/* Dual CTA Strategy */}
@@ -58,7 +58,7 @@ export default function Hero() {
                 </button>
                 <button
                   onClick={scrollToVideo}
-                  className="text-lg sm:text-xl px-8 sm:px-12 py-4 border-2 border-purple-600 text-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 font-semibold"
+                  className="text-lg sm:text-xl px-8 sm:px-12 py-4 border-2 border-purple-600 text-purple-600 rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 font-medium"
                   data-video-cta
                 >
                   Watch 2-min demo

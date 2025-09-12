@@ -29,12 +29,12 @@ export default function ProblemSolution() {
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Problem Section */}
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             <span className="text-gray-900">Why </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-pink-600">Manual Reseller Data</span>
             <span className="text-gray-900"> Management Fails</span>
           </h2>
-          <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto font-medium">
+          <p className="text-xl text-gray-700 mb-12 max-w-3xl mx-auto">
             Managing all that data is a lot of manual work.<br />The same problems keep coming up:
           </p>
           
@@ -45,7 +45,7 @@ export default function ProblemSolution() {
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${problem.gradient} flex items-center justify-center text-2xl mb-6 mx-auto shadow-lg`}>
                     {problem.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  <h3 className="text-xl font-normal text-gray-900 mb-3">
                     {problem.title}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
@@ -71,14 +71,14 @@ export default function ProblemSolution() {
         {/* Solution Section */}
         <div className="text-center">
           <div className="modern-card p-12 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 border-2 border-blue-100">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="text-4xl md:text-5xl font-light mb-8">
               <span className="text-gray-900">We built a system that turns those reports into </span>
               <br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600">clean, reliable insights</span>
             </h2>
             
-            <p className="text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
-              This means <span className="text-accent-emerald font-semibold">no more manual data cleanup</span> and <span className="text-accent-purple font-semibold">no more uncertainty</span>. 
+            <p className="text-xl text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
+              This means <span className="text-accent-emerald font-medium">no more manual data cleanup</span> and <span className="text-accent-purple font-medium">no more uncertainty</span>. 
               You get clear answers on what's selling, where it's working, and what needs your attention. <a href="/reseller-analytics-comparison" className="text-blue-600 hover:text-blue-800">Compare solutions</a> to see why TaskifAI works better.
             </p>
             
@@ -87,7 +87,7 @@ export default function ProblemSolution() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center text-2xl mb-4 mx-auto shadow-lg">
                   ✨
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Automatic Processing</h3>
+                <h3 className="text-lg font-normal text-gray-900 mb-2">Automatic Processing</h3>
                 <p className="text-gray-600">AI cleans and organizes your data</p>
               </div>
               
@@ -95,7 +95,7 @@ export default function ProblemSolution() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-2xl mb-4 mx-auto shadow-lg">
                   📈
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Real-time Dashboards</h3>
+                <h3 className="text-lg font-normal text-gray-900 mb-2">Real-time Dashboards</h3>
                 <p className="text-gray-600">See insights as they happen</p>
               </div>
               
@@ -103,7 +103,7 @@ export default function ProblemSolution() {
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-2xl mb-4 mx-auto shadow-lg">
                   💬
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Ask Questions</h3>
+                <h3 className="text-lg font-normal text-gray-900 mb-2">Ask Questions</h3>
                 <p className="text-gray-600">Get answers in plain English</p>
               </div>
             </div>

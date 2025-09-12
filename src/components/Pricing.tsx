@@ -69,7 +69,7 @@ export default function Pricing() {
         
         {/* Social Proof Section */}
         <div className="text-center mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Trusted by Growing Brands</h3>
+          <h3 className="text-2xl font-normal text-gray-900 mb-8">Trusted by Growing Brands</h3>
           
           {/* Partner Logo */}
           <div className="flex justify-center mb-12">
@@ -117,7 +117,7 @@ export default function Pricing() {
 
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">
               Secure, Personalized Reseller Intelligence
             </span>
@@ -130,15 +130,15 @@ export default function Pricing() {
           {/* Value propositions */}
           <div className="grid md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
             <div className="modern-card p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 border border-emerald-200">
-              <div className="text-2xl font-bold text-emerald-600 mb-2">Maximum Security</div>
+              <div className="text-2xl font-normal text-emerald-600 mb-2">Maximum Security</div>
               <div className="text-gray-700">Your data never shares infrastructure with competitors</div>
             </div>
             <div className="modern-card p-6 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
-              <div className="text-2xl font-bold text-blue-600 mb-2">Custom Built</div>
+              <div className="text-2xl font-normal text-blue-600 mb-2">Custom Built</div>
               <div className="text-gray-700">Every dashboard configured for your specific needs</div>
             </div>
             <div className="modern-card p-6 bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200">
-              <div className="text-2xl font-bold text-purple-600 mb-2">White-Glove Service</div>
+              <div className="text-2xl font-normal text-purple-600 mb-2">White-Glove Service</div>
               <div className="text-gray-700">30-day hands-on implementation included</div>
             </div>
           </div>
@@ -197,7 +197,7 @@ export default function Pricing() {
               <div key={index} className="relative">
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-medium shadow-lg">
                       Most Popular
                     </span>
                   </div>
@@ -208,7 +208,7 @@ export default function Pricing() {
                     <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${plan.gradient}`}></div>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-normal text-gray-900 mb-2">
                     {plan.name}
                   </h3>
                   
@@ -217,7 +217,7 @@ export default function Pricing() {
                   {/* Setup Fee */}
                   <div className="mb-4">
                     <div className="text-sm text-gray-600">One-time setup</div>
-                    <div className="text-2xl font-bold text-gray-900">{formatPrice(plan.setupFee)}</div>
+                    <div className="text-2xl font-normal text-gray-900">{formatPrice(plan.setupFee)}</div>
                     <div className="text-xs text-gray-500">Custom development & migration included</div>
                   </div>
 
@@ -227,7 +227,7 @@ export default function Pricing() {
                       {billingPeriod === 'monthly' ? 'Monthly service' : 'Annual service'}
                     </div>
                     <div className="flex items-baseline justify-center gap-2">
-                      <span className="text-3xl font-bold text-gray-900">{formatPrice(price)}</span>
+                      <span className="text-3xl font-normal text-gray-900">{formatPrice(price)}</span>
                       <span className="text-gray-600">
                         {billingPeriod === 'monthly' ? '/month' : '/year'}
                       </span>
@@ -242,7 +242,7 @@ export default function Pricing() {
 
                   {/* Resellers */}
                   <div className="mb-6">
-                    <div className={`inline-block px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${plan.gradient} text-white`}>
+                    <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r ${plan.gradient} text-white`}>
                       {plan.resellers}
                     </div>
                   </div>
@@ -270,7 +270,7 @@ export default function Pricing() {
         {/* What's Included Section */}
         <div className="text-center mb-10">
           <div className="modern-card p-6 max-w-4xl mx-auto bg-gradient-to-br from-white via-emerald-50/20 to-green-50/30 border-2 border-emerald-100">
-            <h3 className="text-xl font-bold text-gray-900 mb-6">
+            <h3 className="text-xl font-normal text-gray-900 mb-6">
               <span className="text-emerald-600">What's Included in Every Plan</span>
             </h3>
             
@@ -335,7 +335,7 @@ export default function Pricing() {
         {/* ROI Section */}
         <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-10">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-2xl font-normal text-gray-900 mb-4">
               Typical ROI in First Year
             </h3>
             <p className="text-gray-600 mb-8">
@@ -343,15 +343,15 @@ export default function Pricing() {
             </p>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">3-5%</div>
+                <div className="text-3xl font-normal text-blue-600 mb-2">3-5%</div>
                 <div className="text-gray-600">Average increase in reseller revenue</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-600 mb-2">40%</div>
+                <div className="text-3xl font-normal text-purple-600 mb-2">40%</div>
                 <div className="text-gray-600">Reduction in manual reporting time</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-600 mb-2">25%</div>
+                <div className="text-3xl font-normal text-green-600 mb-2">25%</div>
                 <div className="text-gray-600">Faster identification of top performers</div>
               </div>
             </div>

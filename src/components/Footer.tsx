@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <div className="text-2xl font-bold gradient-text mb-4">TaskifAI</div>
+            <div className="text-2xl font-normal gradient-text mb-4">TaskifAI</div>
             <p className="text-gray-400 mb-4">
               Transform your reseller data chaos into clean dashboards and instant insights.
             </p>
@@ -34,7 +34,7 @@ export default function Footer() {
           
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-normal mb-4">Quick Links</h3>
             <div className="space-y-2">
               <Link href="/#process" className="block text-gray-400 hover:text-white transition-colors">
                 How it Works
@@ -50,7 +50,7 @@ export default function Footer() {
           
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <h3 className="text-lg font-normal mb-4">Legal</h3>
             <div className="space-y-2">
               <Link href="/privacy" className="block text-gray-400 hover:text-white transition-colors">
                 Privacy Policy

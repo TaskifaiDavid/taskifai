@@ -34,11 +34,11 @@ export default function Process() {
       
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             <span className="text-gray-900">Here's </span>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600">how it works</span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Three simple steps to transform your reseller data chaos into actionable insights
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function Process() {
             <div key={index} className="relative">
               <div className="modern-card p-8 text-center hover:scale-105 transform transition-all duration-300">
                 {/* Step Number Badge */}
-                <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
+                <div className={`absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center text-white font-medium text-lg shadow-lg`}>
                   {step.number}
                 </div>
                 
@@ -57,7 +57,7 @@ export default function Process() {
                   {step.icon}
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-normal text-gray-900 mb-4">
                   {step.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">

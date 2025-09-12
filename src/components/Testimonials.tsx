@@ -27,7 +27,7 @@ export default function Testimonials() {
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6">
             Why Brands Choose Us
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -49,14 +49,14 @@ export default function Testimonials() {
               
               <div className="flex items-center gap-4">
                 <div className="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center">
-                  <span className="text-blue-600 font-semibold text-sm">
+                  <span className="text-blue-600 font-medium text-sm">
                     {testimonial.initials}
                   </span>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                  <h4 className="font-normal text-gray-900">{testimonial.name}</h4>
                   <p className="text-sm text-gray-600">{testimonial.title}</p>
-                  <p className="text-sm text-blue-600 font-medium">{testimonial.company}</p>
+                  <p className="text-sm text-blue-600">{testimonial.company}</p>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function Testimonials() {
 
         <div className="mt-12 text-center">
           <div className="bg-blue-100 rounded-lg p-6 max-w-2xl mx-auto">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-lg font-normal text-gray-900 mb-2">
               Join 50+ Consumer Brands
             </h3>
             <p className="text-gray-600">

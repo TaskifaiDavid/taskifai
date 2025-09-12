@@ -35,7 +35,7 @@ export default function ExcelAutomationGuide() {
       <section className="relative pt-24 pb-16 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-light mb-8 leading-tight">
             <span className="gradient-text">Stop Wasting Hours on Excel Spreadsheets</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
@@ -43,7 +43,7 @@ export default function ExcelAutomationGuide() {
           </p>
           <Link 
             href="/#contact"
-            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-4 px-8 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
           >
             Automate Your Excel Work Today
           </Link>
@@ -53,14 +53,14 @@ export default function ExcelAutomationGuide() {
       {/* Problem Deep-Dive */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-light text-center mb-16">
             The <span className="text-red-600">Hidden Costs</span> of Manual Excel Work
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="modern-card p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Time Drain</h3>
+                <h3 className="text-2xl font-normal text-gray-900 mb-4">Time Drain</h3>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
                   The average business professional spends <strong>4-6 hours per week</strong> on manual spreadsheet work. For growing brands managing reseller data, this can balloon to 15-20 hours weekly.
                 </p>
@@ -70,7 +70,7 @@ export default function ExcelAutomationGuide() {
               </div>
               
               <div className="modern-card p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Error Multiplication</h3>
+                <h3 className="text-2xl font-normal text-gray-900 mb-4">Error Multiplication</h3>
                 <p className="text-gray-700 text-lg leading-relaxed mb-4">
                   Manual data entry has a <strong>1-5% error rate</strong>. With thousands of rows of reseller data, this creates compounding problems in reporting and decision-making.
                 </p>
@@ -81,22 +81,22 @@ export default function ExcelAutomationGuide() {
             </div>
             
             <div className="modern-card p-8 bg-gradient-to-br from-red-50 to-orange-50">
-              <h3 className="text-2xl font-bold text-red-700 mb-6">The Cascade of Complexity</h3>
+              <h3 className="text-2xl font-normal text-red-700 mb-6">The Cascade of Complexity</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-medium text-sm">1</div>
                   <p className="text-gray-700">Different resellers use different Excel templates</p>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-medium text-sm">2</div>
                   <p className="text-gray-700">Manual standardization takes hours per file</p>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-medium text-sm">3</div>
                   <p className="text-gray-700">Data inconsistencies multiply with each reseller</p>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-medium text-sm">4</div>
                   <p className="text-gray-700">Reports become unreliable, decisions suffer</p>
                 </div>
               </div>
@@ -108,21 +108,21 @@ export default function ExcelAutomationGuide() {
       {/* Solution Comparison */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-light text-center mb-16">
             Traditional vs <span className="gradient-text">AI-Powered</span> Approach
           </h2>
           
           <div className="grid md:grid-cols-2 gap-8">
             {/* Traditional Approach */}
             <div className="modern-card p-8 border-l-4 border-red-500">
-              <h3 className="text-2xl font-bold text-red-700 mb-6">Traditional Manual Process</h3>
+              <h3 className="text-2xl font-normal text-red-700 mb-6">Traditional Manual Process</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mt-1">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Download reseller files</p>
+                    <p className="font-normal text-gray-900">Download reseller files</p>
                     <p className="text-gray-600">30-60 minutes per reseller</p>
                   </div>
                 </div>
@@ -131,7 +131,7 @@ export default function ExcelAutomationGuide() {
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Manual standardization</p>
+                    <p className="font-normal text-gray-900">Manual standardization</p>
                     <p className="text-gray-600">2-4 hours per file</p>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export default function ExcelAutomationGuide() {
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Data validation & cleanup</p>
+                    <p className="font-normal text-gray-900">Data validation & cleanup</p>
                     <p className="text-gray-600">1-2 hours per file</p>
                   </div>
                 </div>
@@ -149,27 +149,27 @@ export default function ExcelAutomationGuide() {
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Manual report creation</p>
+                    <p className="font-normal text-gray-900">Manual report creation</p>
                     <p className="text-gray-600">3-5 hours weekly</p>
                   </div>
                 </div>
               </div>
               <div className="mt-6 p-4 bg-red-50 rounded-lg">
-                <p className="text-red-700 font-bold">Total: 15-20 hours per week</p>
+                <p className="text-red-700 font-normal">Total: 15-20 hours per week</p>
                 <p className="text-red-600">High error rate, inconsistent results</p>
               </div>
             </div>
 
             {/* AI-Powered Approach */}
             <div className="modern-card p-8 border-l-4 border-green-500">
-              <h3 className="text-2xl font-bold text-green-700 mb-6">TaskifAI Automated Process</h3>
+              <h3 className="text-2xl font-normal text-green-700 mb-6">TaskifAI Automated Process</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mt-1">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Automatic file processing</p>
+                    <p className="font-normal text-gray-900">Automatic file processing</p>
                     <p className="text-gray-600">2-5 minutes per reseller</p>
                   </div>
                 </div>
@@ -178,7 +178,7 @@ export default function ExcelAutomationGuide() {
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">AI-powered standardization</p>
+                    <p className="font-normal text-gray-900">AI-powered standardization</p>
                     <p className="text-gray-600">Instant, learns patterns</p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function ExcelAutomationGuide() {
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Intelligent data validation</p>
+                    <p className="font-normal text-gray-900">Intelligent data validation</p>
                     <p className="text-gray-600">99.5% accuracy rate</p>
                   </div>
                 </div>
@@ -196,13 +196,13 @@ export default function ExcelAutomationGuide() {
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Real-time dashboards</p>
+                    <p className="font-normal text-gray-900">Real-time dashboards</p>
                     <p className="text-gray-600">Always up-to-date insights</p>
                   </div>
                 </div>
               </div>
               <div className="mt-6 p-4 bg-green-50 rounded-lg">
-                <p className="text-green-700 font-bold">Total: 1-2 hours per week</p>
+                <p className="text-green-700 font-normal">Total: 1-2 hours per week</p>
                 <p className="text-green-600">95% time savings, consistent results</p>
               </div>
             </div>
@@ -213,41 +213,41 @@ export default function ExcelAutomationGuide() {
       {/* Implementation Guide */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-light text-center mb-16">
             How TaskifAI <span className="gradient-text">Automates</span> Your Excel Work
           </h2>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h3 className="text-2xl font-bold text-gray-900">The 5 Most Time-Consuming Manual Tasks</h3>
+              <h3 className="text-2xl font-normal text-gray-900">The 5 Most Time-Consuming Manual Tasks</h3>
               
               <div className="space-y-6">
                 <div className="modern-card p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">1. Data Standardization</h4>
+                  <h4 className="text-xl font-normal text-gray-900 mb-3">1. Data Standardization</h4>
                   <p className="text-gray-700 mb-4">
                     <strong>Manual:</strong> Reformatting columns, standardizing product names, fixing date formats
                   </p>
-                  <p className="text-blue-700 font-semibold">
+                  <p className="text-blue-700 font-normal">
                     <strong>TaskifAI:</strong> AI learns your naming conventions and applies them automatically
                   </p>
                 </div>
 
                 <div className="modern-card p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">2. Error Detection & Correction</h4>
+                  <h4 className="text-xl font-normal text-gray-900 mb-3">2. Error Detection & Correction</h4>
                   <p className="text-gray-700 mb-4">
                     <strong>Manual:</strong> Scanning for duplicate entries, missing data, calculation errors
                   </p>
-                  <p className="text-blue-700 font-semibold">
+                  <p className="text-blue-700 font-normal">
                     <strong>TaskifAI:</strong> Pattern recognition identifies and flags anomalies instantly
                   </p>
                 </div>
 
                 <div className="modern-card p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">3. Data Consolidation</h4>
+                  <h4 className="text-xl font-normal text-gray-900 mb-3">3. Data Consolidation</h4>
                   <p className="text-gray-700 mb-4">
                     <strong>Manual:</strong> Copy-pasting from multiple files, managing version conflicts
                   </p>
-                  <p className="text-blue-700 font-semibold">
+                  <p className="text-blue-700 font-normal">
                     <strong>TaskifAI:</strong> Intelligent merging with conflict resolution and version tracking
                   </p>
                 </div>
@@ -255,32 +255,32 @@ export default function ExcelAutomationGuide() {
             </div>
             
             <div className="modern-card p-8 bg-white">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">ROI Calculator</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-6">ROI Calculator</h3>
               
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-2 border-b">
                   <span className="text-gray-700">Manual processing time/week:</span>
-                  <span className="font-bold">15 hours</span>
+                  <span className="font-normal">15 hours</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b">
                   <span className="text-gray-700">Hourly cost (including benefits):</span>
-                  <span className="font-bold">$35</span>
+                  <span className="font-normal">$35</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b">
                   <span className="text-gray-700">Monthly manual cost:</span>
-                  <span className="font-bold text-red-600">$2,275</span>
+                  <span className="font-normal text-red-600">$2,275</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b">
                   <span className="text-gray-700">TaskifAI monthly cost:</span>
-                  <span className="font-bold">€1,500</span>
+                  <span className="font-normal">€1,500</span>
                 </div>
                 <div className="flex justify-between items-center py-4 bg-green-50 px-4 rounded-lg">
-                  <span className="text-green-700 font-bold">Monthly savings:</span>
-                  <span className="text-green-700 font-bold text-xl">$775+</span>
+                  <span className="text-green-700 font-normal">Monthly savings:</span>
+                  <span className="text-green-700 font-normal text-xl">$775+</span>
                 </div>
                 <div className="flex justify-between items-center py-4 bg-blue-50 px-4 rounded-lg">
-                  <span className="text-blue-700 font-bold">Annual ROI:</span>
-                  <span className="text-blue-700 font-bold text-xl">515%</span>
+                  <span className="text-blue-700 font-normal">Annual ROI:</span>
+                  <span className="text-blue-700 font-normal text-xl">515%</span>
                 </div>
               </div>
             </div>
@@ -291,7 +291,7 @@ export default function ExcelAutomationGuide() {
       {/* FAQ Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-light text-center mb-12">
             Frequently Asked Questions About Excel Automation
           </h2>
           
@@ -303,7 +303,7 @@ export default function ExcelAutomationGuide() {
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                    <h3 className="text-lg font-normal text-gray-900 pr-4">
                       {item.question}
                     </h3>
                     <div className={`transform transition-transform ${expandedFaq === index ? 'rotate-180' : ''}`}>
@@ -329,7 +329,7 @@ export default function ExcelAutomationGuide() {
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-purple-600 to-blue-600">
         <div className="max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8">
+          <h2 className="text-3xl md:text-5xl font-light mb-8">
             Ready to Eliminate Excel Busywork?
           </h2>
           <p className="text-xl md:text-2xl mb-12 opacity-90 leading-relaxed">
@@ -338,13 +338,13 @@ export default function ExcelAutomationGuide() {
           <div className="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center">
             <Link 
               href="/#contact"
-              className="inline-block bg-white text-purple-600 font-bold py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="inline-block bg-white text-purple-600 font-medium py-4 px-8 rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
               Book Intro Call
             </Link>
             <Link 
               href="/"
-              className="inline-block border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-purple-600 transition-all duration-300"
+              className="inline-block border-2 border-white text-white font-medium py-4 px-8 rounded-lg hover:bg-white hover:text-purple-600 transition-all duration-300"
             >
               Watch Demo
             </Link>

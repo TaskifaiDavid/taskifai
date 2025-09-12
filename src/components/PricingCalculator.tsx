@@ -67,7 +67,7 @@ export default function PricingCalculator() {
         
         {/* Social Proof Section */}
         <div className="text-center mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Trusted by Growing Brands</h3>
+          <h3 className="text-2xl font-normal text-gray-900 mb-8">Trusted by Growing Brands</h3>
           
           {/* Partner Logo */}
           <div className="flex justify-center mb-12">
@@ -105,7 +105,7 @@ export default function PricingCalculator() {
 
         {/* Service Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">Reseller Analytics Platform</span>
           </h2>
           <p className="text-xl text-gray-700 max-w-4xl mx-auto font-medium mb-8">
@@ -119,11 +119,11 @@ export default function PricingCalculator() {
             
             {/* Configuration Section */}
             <div className="mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Configure Your Platform</h3>
+              <h3 className="text-2xl font-normal text-gray-900 mb-6 text-center">Configure Your Platform</h3>
               
               {/* Reseller Count Slider */}
               <div className="mb-8">
-                <label className="block text-lg font-semibold text-gray-700 mb-4">
+                <label className="block text-lg font-normal text-gray-700 mb-4">
                   Number of Resellers: <span className="text-blue-600">{resellerCount}</span>
                   {resellerCount >= 50 && <span className="text-sm text-gray-500 ml-2">(Custom pricing available)</span>}
                 </label>
@@ -146,7 +146,7 @@ export default function PricingCalculator() {
 
               {/* Billing Frequency */}
               <div className="mb-8">
-                <label className="block text-lg font-semibold text-gray-700 mb-4">Billing:</label>
+                <label className="block text-lg font-normal text-gray-700 mb-4">Billing:</label>
                 <div className="flex gap-4 mb-6">
                   <div className="flex items-center">
                     <input
@@ -172,7 +172,7 @@ export default function PricingCalculator() {
                     />
                     <label htmlFor="annual-billing" className="ml-2 text-gray-700 cursor-pointer">
                       <span className="font-medium">Annual</span>
-                      <span className="inline-block ml-2 px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">Save 15%</span>
+                      <span className="inline-block ml-2 px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-medium rounded-full">Save 15%</span>
                     </label>
                   </div>
                 </div>
@@ -180,7 +180,7 @@ export default function PricingCalculator() {
 
               {/* Setup Preference */}
               <div className="mb-8">
-                <label className="block text-lg font-semibold text-gray-700 mb-4">Setup Preference:</label>
+                <label className="block text-lg font-normal text-gray-700 mb-4">Setup Preference:</label>
                 <div className="space-y-4">
                   <div className="flex items-center">
                     <input
@@ -193,7 +193,7 @@ export default function PricingCalculator() {
                     />
                     <label htmlFor="with-setup" className="ml-3 text-gray-700 cursor-pointer">
                       <span className="font-medium">Standard Setup</span> - {formatPrice(setupFee)} + {isAnnualBilling ? `${formatPrice(annualCostWithSetup)}/year` : `${formatPrice(baseMonthlyCost)}/month`}
-                      <span className="inline-block ml-2 px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">Recommended</span>
+                      <span className="inline-block ml-2 px-2 py-1 bg-emerald-100 text-emerald-800 text-xs font-medium rounded-full">Recommended</span>
                     </label>
                   </div>
                   <div className="flex items-center">
@@ -215,7 +215,7 @@ export default function PricingCalculator() {
 
             {/* Pricing Results */}
             <div className="border-t border-gray-200 pt-8">
-              <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Your Investment</h3>
+              <h3 className="text-xl font-normal text-gray-900 mb-6 text-center">Your Investment</h3>
               
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 mb-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -223,12 +223,12 @@ export default function PricingCalculator() {
                     {hasSetupFee && (
                       <div className="flex justify-between items-center mb-3">
                         <span className="text-gray-700">Setup:</span>
-                        <span className="text-xl font-bold text-gray-900">{formatPrice(setupFee)}</span>
+                        <span className="text-xl font-normal text-gray-900">{formatPrice(setupFee)}</span>
                       </div>
                     )}
                     <div className="flex justify-between items-center mb-3">
                       <span className="text-gray-700">{isAnnualBilling ? 'Annual:' : 'Monthly:'}</span>
-                      <span className="text-xl font-bold text-gray-900">
+                      <span className="text-xl font-normal text-gray-900">
                         {isAnnualBilling ? formatPrice(ongoingYearlyCost) : formatPrice(currentMonthly)}
                         {isAnnualBilling ? '/year' : '/month'}
                       </span>
@@ -243,7 +243,7 @@ export default function PricingCalculator() {
                   <div>
                     <div className="flex justify-between items-center mb-3">
                       <span className="text-gray-700">Year 1 Total:</span>
-                      <span className="text-2xl font-bold text-blue-600">{formatPrice(yearOneCost)}</span>
+                      <span className="text-2xl font-normal text-blue-600">{formatPrice(yearOneCost)}</span>
                     </div>
                     {!isAnnualBilling && (
                       <div className="flex justify-between items-center text-sm text-gray-600">
@@ -254,7 +254,7 @@ export default function PricingCalculator() {
                     {isAnnualBilling && annualSavings > 0 && (
                       <div className="flex justify-between items-center text-sm text-emerald-600">
                         <span>Annual Savings:</span>
-                        <span className="font-semibold">{formatPrice(annualSavings)}</span>
+                        <span className="font-medium">{formatPrice(annualSavings)}</span>
                       </div>
                     )}
                   </div>
@@ -277,7 +277,7 @@ export default function PricingCalculator() {
                   onClick={() => {
                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
                   }}
-                  className="gradient-button px-8 py-3 text-lg font-semibold"
+                  className="gradient-button px-8 py-3 text-lg font-medium"
                 >
                   Get Started
                 </button>
@@ -289,7 +289,7 @@ export default function PricingCalculator() {
         {/* What's Included Section */}
         <div className="text-center mt-16">
           <div className="modern-card p-8 max-w-5xl mx-auto bg-gradient-to-br from-white via-emerald-50/20 to-green-50/30 border-2 border-emerald-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">
+            <h3 className="text-2xl font-normal text-gray-900 mb-8">
               <span className="text-emerald-600">What's Always Included</span>
             </h3>
             
@@ -300,7 +300,7 @@ export default function PricingCalculator() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Custom Data Parsers</h4>
+                <h4 className="font-normal text-gray-900 mb-2">Custom Data Parsers</h4>
                 <p className="text-gray-600 text-sm">Tailored for each reseller's unique data format</p>
               </div>
               
@@ -310,7 +310,7 @@ export default function PricingCalculator() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Real-time Dashboard</h4>
+                <h4 className="font-normal text-gray-900 mb-2">Real-time Dashboard</h4>
                 <p className="text-gray-600 text-sm">Built specifically for your business needs</p>
               </div>
               
@@ -320,7 +320,7 @@ export default function PricingCalculator() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">AI Chat Interface</h4>
+                <h4 className="font-normal text-gray-900 mb-2">AI Chat Interface</h4>
                 <p className="text-gray-600 text-sm">Ask questions in natural language</p>
               </div>
             </div>
@@ -332,7 +332,7 @@ export default function PricingCalculator() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Complete Implementation</h4>
+                <h4 className="font-normal text-gray-900 mb-2">Complete Implementation</h4>
                 <p className="text-gray-600 text-sm">Setup, training, and onboarding support</p>
               </div>
               
@@ -342,7 +342,7 @@ export default function PricingCalculator() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h4 className="font-bold text-gray-900 mb-2">Ongoing Support</h4>
+                <h4 className="font-normal text-gray-900 mb-2">Ongoing Support</h4>
                 <p className="text-gray-600 text-sm">Email support, hosting, and maintenance</p>
               </div>
             </div>

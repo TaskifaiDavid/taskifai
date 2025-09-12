@@ -102,9 +102,9 @@ export default function Header() {
   }
 
   const getNavButtonClass = (isActive: boolean = false) => {
-    const baseClass = "font-medium transition-colors duration-200"
+    const baseClass = "transition-colors duration-200"
     return isActive 
-      ? `${baseClass} text-blue-600 font-semibold`
+      ? `${baseClass} text-blue-600 font-medium`
       : `${baseClass} text-gray-700 hover:text-blue-600`
   }
 
@@ -118,7 +118,7 @@ export default function Header() {
           <div className="flex items-center">
             <button 
               onClick={navigateHome}
-              className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity duration-200"
+              className="text-2xl font-normal gradient-text hover:opacity-80 transition-opacity duration-200"
               aria-label="Navigate to home page"
             >
               TaskifAI

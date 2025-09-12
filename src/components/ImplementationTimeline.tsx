@@ -36,10 +36,10 @@ export default function ImplementationTimeline() {
       
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-light mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600">60-Day Implementation Process</span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
             Thorough delivery that gets you from messy spreadsheets to automated insights in 8 weeks.
           </p>
         </div>
@@ -60,11 +60,11 @@ export default function ImplementationTimeline() {
                 </div>
                 
                 {/* Week Badge */}
-                <div className={`inline-block px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${phase.gradient} text-white mb-4`}>
+                <div className={`inline-block px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r ${phase.gradient} text-white mb-4`}>
                   {phase.week}
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                <h3 className="text-2xl font-normal text-gray-900 mb-4">
                   {phase.title}
                 </h3>
                 
